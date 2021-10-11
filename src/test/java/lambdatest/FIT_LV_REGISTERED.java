@@ -1,5 +1,4 @@
-
-package lambdatest; //<your package name>
+package lambdatest;
 
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,8 +22,8 @@ import java.util.concurrent.TimeUnit;
 
 import junit.framework.TestResult;
 
-public class Lambdatest {
 
+public class FIT_LV_REGISTERED {
     public RemoteWebDriver driver = null;
     String username = "artcunami";
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
@@ -34,7 +33,7 @@ public class Lambdatest {
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "First Test");
-        capabilities.setCapability("name", "FIT_LV_NOT_REGISTERED");
+        capabilities.setCapability("name", "FIT_LV_REGISTERED");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
         capabilities.setCapability("version","94.0");
@@ -57,32 +56,12 @@ public class Lambdatest {
 
 
     @Test(enabled = true, priority = 1)
-    public void FIT_LV_NOT_REG() throws Exception {
+    public void FIT_LV_REG() throws Exception {
         try {
 
             driver.get("https://fitnesaveikals.lv/");
             driver.manage().window().maximize();
-            //boolean result = driver.findElements(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).size() > 0;
-            driver.findElement(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).click(); //Akcijas preces
-            driver.findElement(By.xpath("//*[@id=\"search_block\"]/div[1]/div[1]/div/div/h4/a")).click(); //product link
-            driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[1]/div[3]/div/form/div/div/button[2]")).click(); //plus button
-            driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[1]/div[3]/div/form/button")).click();//Add to cart
-            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go cart
-            driver.findElement(By.xpath("//*[@id=\"cartTable\"]/div[4]/a[2]")).click();//Submit order
-            driver.findElement(By.xpath("/html/body/div[1]/main/section[1]/div/div[2]/div/div[2]/div[1]/button[2]")).click(); //Not registered
-            WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input
-            orderName.sendKeys("Arturs"); //keys name
-            WebElement orderSName = driver.findElement(By.id("reg_sname")); //Search Sname input
-            orderSName.sendKeys("Rasnacis"); //Keys sname
-            WebElement orderEmail = driver.findElement(By.id("reg_email")); //search Email
-            orderEmail.sendKeys("cunami@mailinator.com"); //Input email
-            WebElement phone = driver.findElement(By.id("reg_tel")); //Search phone
-            phone.sendKeys("20000000"); //send phone
-            driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[6]/div[1]/div[1]/div[4]/label")).click(); //Find pay at store
-            driver.findElement(By.cssSelector(".row:nth-child(9) #delivery_free--wrapper > .radio__label")).click(); //In Office
-            driver.findElement(By.cssSelector(".row:nth-child(13) .checkbox__label")).click(); //terms accept
-            driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click();
-            Thread.sleep(2000);
+
             String page_url = driver.getCurrentUrl();
             String Substring = "cart-done";
             boolean result = page_url.contains(Substring);
