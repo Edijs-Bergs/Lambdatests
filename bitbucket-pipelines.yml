@@ -15,7 +15,8 @@ pipelines:
           script:
             - mvn clean install -U
             - mvn clean install -DskipTests
-            - mvn -Dtest=Lambdatest test
+            - mvn -Dtest=FIT_LV_REGISTERED test
+            - mvn -Dtest=FIT_LV_UNREGISTERED test
           after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
             - pipe: atlassian/checkstyle-report:0.2.0
