@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 import junit.framework.TestResult;
 
-public class Lambdatest {
+public class FIT_LV_UNREGISTERED {
 
     public RemoteWebDriver driver = null;
     String username = "artcunami";
