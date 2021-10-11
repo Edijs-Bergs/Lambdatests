@@ -1,7 +1,7 @@
 
 package lambdatest; //<your package name>
 
-import org.junit.jupiter.api.Test;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
