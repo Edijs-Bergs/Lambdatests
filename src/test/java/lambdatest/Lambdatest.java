@@ -2,6 +2,7 @@
 package lambdatest; //<your package name>
 
 
+import junit.framework.TestResult;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,12 +23,13 @@ public class Lambdatest {
     public RemoteWebDriver driver = null;
     String username = "artcunami";
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
+    String Resulting = "";
 
     @BeforeTest
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "First Test");
-        capabilities.setCapability("name", "Sample Test");
+        capabilities.setCapability("name", "Fitness latvia tests");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
         capabilities.setCapability("version","94.0");
@@ -46,11 +48,16 @@ public class Lambdatest {
         }
     }
 
-    @Test(enabled = true)
-    public void testScript() throws Exception {
+
+
+
+    @Test(enabled = true, priority = 1)
+    public void FitnesaVeikalsNeReg() throws Exception {
         try {
+
             driver.get("https://fitnesaveikals.lv/");
             driver.manage().window().maximize();
+            //boolean result = driver.findElements(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).size() > 0;
             driver.findElement(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).click(); //Akcijas preces
             driver.findElement(By.xpath("//*[@id=\"search_block\"]/div[1]/div[1]/div/div/h4/a")).click(); //product link
             driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[1]/div[3]/div/form/div/div/button[2]")).click(); //plus button
@@ -67,20 +74,35 @@ public class Lambdatest {
             WebElement phone = driver.findElement(By.id("reg_tel")); //Search phone
             phone.sendKeys("20000000"); //send phone
             driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[6]/div[1]/div[1]/div[4]/label")).click(); //Find pay at store
+            driver.findElement(By.cssSelector(".row:nth-child(9) #delivery_free--wrapper > .radio__label")).click(); //In Office
+            driver.findElement(By.cssSelector(".row:nth-child(13) .checkbox__label")).click(); //terms accept
+            driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click();
+            Thread.sleep(2000);
+            String page_url = driver.getCurrentUrl();
+            String Substring = "cart-done";
+            boolean result = page_url.contains(Substring);
+            System.out.println(result);
 
 
-            driver.findElements(By.id("terms_2")).get(1).click();
-
-
+            if (result)
+            {
+                Resulting = "passed";
+            }
+            else
+            {
+                Resulting = "failed";
+            }
+            System.out.println(Resulting);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
     @AfterClass
     public void tearDown() throws Exception {
         if (driver != null) {
-            ((JavascriptExecutor) driver).executeScript("lambda-status=passed");
+            ((JavascriptExecutor) driver).executeScript("lambda-status=" + Resulting);
             driver.quit();
         }
     }
