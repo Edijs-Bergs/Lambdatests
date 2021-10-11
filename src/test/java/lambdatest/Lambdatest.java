@@ -28,7 +28,7 @@ public class Lambdatest {
     public RemoteWebDriver driver = null;
     String username = "artcunami";
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
-    String Resulting = "";
+    String Resulting = "failed";
 
     @BeforeTest
     public void setUp() throws Exception {
@@ -81,7 +81,7 @@ public class Lambdatest {
             driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[6]/div[1]/div[1]/div[4]/label")).click(); //Find pay at store
             driver.findElement(By.cssSelector(".row:nth-child(9) #delivery_free--wrapper > .radio__label")).click(); //In Office
             driver.findElement(By.cssSelector(".row:nth-child(13) .checkbox__label")).click(); //terms accept
-            driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click();
+            driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click(); //Submit
             Thread.sleep(2000);
             String page_url = driver.getCurrentUrl();
             String Substring = "cart-done";
