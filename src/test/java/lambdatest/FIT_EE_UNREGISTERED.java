@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 import junit.framework.TestResult;
 
 public class FIT_EE_UNREGISTERED {
+
     public RemoteWebDriver driver = null;
     String username = "artcunami";
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
@@ -113,11 +114,6 @@ public class FIT_EE_UNREGISTERED {
             driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[9]/div/div/div/label/p")).click(); //accept terms
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
-
-            //Tab switching
-            //ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
-            //switch to new tab
-            //driver.switchTo().window(newTb.get(0));
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";

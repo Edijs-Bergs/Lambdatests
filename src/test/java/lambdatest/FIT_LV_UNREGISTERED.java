@@ -62,7 +62,7 @@ public class FIT_LV_UNREGISTERED {
 
             driver.get("https://fitnesaveikals.lv/");
             driver.manage().window().maximize();
-            //boolean result = driver.findElements(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).size() > 0;
+
             driver.findElement(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).click(); //Akcijas preces
             driver.findElement(By.xpath("//*[@id=\"search_block\"]/div[1]/div[1]/div/div/h4/a")).click(); //product link
             driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[1]/div[3]/div/form/div/div/button[2]")).click(); //plus button
@@ -70,6 +70,7 @@ public class FIT_LV_UNREGISTERED {
             driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go cart
             driver.findElement(By.xpath("//*[@id=\"cartTable\"]/div[4]/a[2]")).click();//Submit order
             driver.findElement(By.xpath("/html/body/div[1]/main/section[1]/div/div[2]/div/div[2]/div[1]/button[2]")).click(); //Not registered
+
             WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input
             orderName.sendKeys("Arturs"); //keys name
             WebElement orderSName = driver.findElement(By.id("reg_sname")); //Search Sname input
@@ -78,11 +79,12 @@ public class FIT_LV_UNREGISTERED {
             orderEmail.sendKeys("cunami@mailinator.com"); //Input email
             WebElement phone = driver.findElement(By.id("reg_tel")); //Search phone
             phone.sendKeys("20000000"); //send phone
+
             driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[6]/div[1]/div[1]/div[4]/label")).click(); //Find pay at store
             driver.findElement(By.cssSelector(".row:nth-child(9) #delivery_free--wrapper > .radio__label")).click(); //In Office
             driver.findElement(By.cssSelector(".row:nth-child(13) .checkbox__label")).click(); //terms accept
             driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click(); //Submit
-            Thread.sleep(2000);
+
             String page_url = driver.getCurrentUrl();
             String Substring = "cart-done";
             boolean result = page_url.contains(Substring);

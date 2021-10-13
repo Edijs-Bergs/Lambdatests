@@ -87,16 +87,9 @@ public class FIT_FI_UNREGISTERED {
             driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[6]/div/div/div[2]/label")).click(); //Select paysera
             driver.findElement(By.xpath("(//div[@id='delivery_fitstore_fi_free--wrapper']/label)[2]")).click(); //Delliver by courier
 
-
-
             driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[13]/div/div/div/label/p")).click(); //accept terms
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
-
-            //Tab switching
-            //ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
-            //switch to new tab
-            //driver.switchTo().window(newTb.get(0));
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";

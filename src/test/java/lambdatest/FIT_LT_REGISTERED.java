@@ -99,16 +99,13 @@ public class FIT_LT_REGISTERED {
             phone2.sendKeys("20000000");
 
             driver.findElement(By.cssSelector(".col-lg-6:nth-child(1) .checkbox__label")).click(); //accept terms
-            ////*[@id="unreg_user"]/form/div[9]/div/div/div/label/p
 
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click();  //submit
-
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
-
 
             if (result)
             {

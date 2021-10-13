@@ -67,7 +67,6 @@ public class FIT_FI_REGISTERED {
             driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); //Add to cart
             driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.fi/themes/fitstore-fi/assets/img/cart.svg')]")).click(); //Go to cart
             driver.findElement(By.xpath("//div[@id='cartTable']/div[4]/a[2]")).click(); //to checkout
-            //driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); // Unregistered
 
             WebElement Log_email = driver.findElement(By.xpath("//input[@id='email']")); // find email
             Log_email.sendKeys("cunami@mailinator.com"); //Send keys
@@ -79,25 +78,12 @@ public class FIT_FI_REGISTERED {
             driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.fi/themes/fitstore-fi/assets/img/cart.svg')]")).click(); //Go to cart
             driver.findElement(By.xpath("//div[@id='cartTable']/div[4]/a[2]")).click(); //to checkout
 
-
-
-
-
-
-
             driver.findElement(By.xpath("//div[2]/label")).click(); //Select paysera
             driver.findElement(By.xpath("//div[@id='delivery_fitstore_fi_free--wrapper']/label")).click(); //Delliver by courier
-
-
 
             driver.findElement(By.xpath("//div[8]/div/div/div/label/p")).click(); //accept terms
 
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click();  //submit
-
-            //Tab switching
-            //ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
-            //switch to new tab
-            //driver.switchTo().window(newTb.get(0));
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";

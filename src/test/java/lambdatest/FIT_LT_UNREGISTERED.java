@@ -110,26 +110,10 @@ public class FIT_LT_UNREGISTERED {
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
-
-            //Tab switching
-            //ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
-            //switch to new tab
-            //driver.switchTo().window(newTb.get(0));
-
-
-
-
-
-
-
-
-
-
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
-
 
             if (result)
             {

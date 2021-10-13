@@ -95,8 +95,6 @@ public class FIT_EE_REGISTERED {
             Select dropParish = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_area_3']"))); //Select dropdown
             dropParish.selectByVisibleText("Valga Parish"); //parish
 
-
-
             WebElement Street = driver.findElement(By.xpath("//input[@id='shipping_address_3']")); //Street
             Street.sendKeys("Ringuvos"); //input street
 
@@ -107,7 +105,6 @@ public class FIT_EE_REGISTERED {
             phone2.sendKeys("20000000");
 
             driver.findElement(By.cssSelector(".col-lg-6:nth-child(1) .checkbox__label")).click(); //accept terms
-            ////*[@id="unreg_user"]/form/div[9]/div/div/div/label/p
 
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click();  //submit
 
