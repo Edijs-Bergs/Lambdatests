@@ -61,7 +61,7 @@ public class FIT_LV_REGISTERED {
             driver.get("https://fitnesaveikals.lv/");
             driver.manage().window().maximize(); //Max window
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a")).click(); //Akcijas preces
-            driver.findElement(By.xpath("//a[contains(text(),'Priekšējā rāmja ietvars ALLROUND I+II')]")).click(); //2nd sale product
+            driver.findElement(By.xpath("//a[contains(text(),'Sigma pulsometra turētājs velosipēdam')]")).click(); //2nd sale product
             driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); //Add to cart
             driver.findElement(By.xpath("//img[contains(@src,'https://fitnesaveikals.lv/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //to cart
             driver.findElement(By.xpath("//a[contains(text(),'Noformēt pasūtījumu >')]")).click(); //Submit order
