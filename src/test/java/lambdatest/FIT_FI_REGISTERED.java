@@ -31,7 +31,7 @@ public class FIT_FI_REGISTERED {
     @BeforeTest
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("build", "First Test");
+        capabilities.setCapability("build", "Finished_FIT");
         capabilities.setCapability("name", "FIT_FI_REGISTERED");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
