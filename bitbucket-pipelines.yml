@@ -23,6 +23,7 @@ pipelines:
             - mvn -Dtest=FIT_EE_UNREGISTERED test
             - mvn -Dtest=FIT_FI_REGISTERED test
             - mvn -Dtest=FIT_FI_UNREGISTERED test
+            - mvn -Dtest=FLYB_CALC_TEST test
           after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
             - pipe: atlassian/checkstyle-report:0.2.0
