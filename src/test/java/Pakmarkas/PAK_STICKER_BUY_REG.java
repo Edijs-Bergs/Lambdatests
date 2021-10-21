@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import junit.framework.TestResult;
@@ -26,6 +27,7 @@ public class PAK_STICKER_BUY_REG {
     String username = "artcunami";
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
     String Resulting = "failed";
+
 
     @BeforeTest
     public void setUp() throws Exception {
@@ -57,11 +59,52 @@ public class PAK_STICKER_BUY_REG {
     public void FIT_LV_NOT_REG() throws Exception {
         try {
 
-            driver.get("https://fitnesaveikals.lv/");
+            driver.get("https://www.stensan.com/en");
+
             driver.manage().window().maximize();
 
+            driver.findElement(By.xpath("//form[@id='store-first-step-form']/div[2]/div/div/div[2]/label[2]/div/div/img")).click(); //Shape cut
 
+            WebElement xinput = driver.findElement(By.xpath("//*[@id=\"store-first-step-form\"]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div/div/input"));
+            xinput.clear();
+            xinput.sendKeys("60");
+            WebElement yinput = driver.findElement(By.xpath("//*[@id=\"store-first-step-form\"]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div/input"));
+            yinput.clear();
+            yinput.sendKeys("70");
 
+            driver.findElement(By.xpath("//button[@id='store-first-step']")).click();
+            driver.findElement(By.xpath("//div[@id='use_custom_size_block']/div/div/label")).click();
+            driver.findElement(By.xpath("//button[@id='store-first-step']")).click();
+
+            Select dropdownmaterial = new Select(driver.findElement(By.id("material"))); //Select dropdown
+            dropdownmaterial.selectByVisibleText("Vellum matte"); //Select material
+            Select dropdownadhesive = new Select(driver.findElement(By.id("adhesive"))); //select dropdown
+            dropdownadhesive.selectByVisibleText("Standard"); //Select adhesive
+            Select dropdowndiameter = new Select(driver.findElement(By.id("core_inner_diameter"))); //select dropdown
+            dropdowndiameter.selectByVisibleText("76"); //select diameter
+            Select dropdownrolling = new Select(driver.findElement(By.id("rolling"))); //select dropdown
+            dropdownrolling.selectByVisibleText("Inner"); //select rolling
+
+            driver.findElement(By.xpath("//button[@id='store-second-step']")).click(); //2nd submit
+            driver.findElement(By.xpath("//button[2]/img")).click(); //add plus
+
+            WebElement name = driver.findElement(By.xpath("//input[@name='user[name]']")); //search name
+            name.clear();
+            name.sendKeys("Arturs"); //input name
+            WebElement sname = driver.findElement(By.xpath("//input[@name='user[surname]']"));  //search sname
+            sname.clear();
+            sname.sendKeys("Rasnacis"); //input sname
+            WebElement email = driver.findElement(By.xpath("//input[@name='user[email]']")); //search email
+            email.clear();
+            email.sendKeys("cunami@mailinator.com"); //inpun email
+            WebElement tel = driver.findElement(By.xpath("//input[@name='user[tel]']"));  //search tel
+            tel.clear();
+            tel.sendKeys("20000000"); //input tel
+
+            driver.findElement(By.xpath("//label[contains(.,'Paysera')]")).click(); //paysera
+            driver.findElement(By.xpath("//div[@id='delivery_free--wrapper']/label")).click(); //In office
+            driver.findElement(By.xpath("//label[contains(.,'I agree Purchase rules, Privacy Policy and Delivery policy')]")).click(); //terms
+            driver.findElement(By.xpath("//button[@id='confirm_order_btn']")).click();// Confirm order
             Thread.sleep(2000);
             String page_url = driver.getCurrentUrl();
             String Substring = "cart-done";

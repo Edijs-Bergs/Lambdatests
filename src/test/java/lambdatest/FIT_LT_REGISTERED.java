@@ -60,10 +60,12 @@ public class FIT_LT_REGISTERED {
 
             driver.get("https://fitstore.lt/");
             driver.manage().window().maximize();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
 
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(3) .product__content a")).click(); //Spring
-            driver.findElement(By.xpath("//button[2]")).click(); //Add item
+
             driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); //Add to cart
             driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.lt/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //Go to cart
             driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout

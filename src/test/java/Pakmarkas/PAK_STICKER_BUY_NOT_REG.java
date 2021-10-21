@@ -21,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 import junit.framework.TestResult;
 
+
 public class PAK_STICKER_BUY_NOT_REG {
     public RemoteWebDriver driver = null;
     String username = "artcunami";
@@ -52,15 +53,14 @@ public class PAK_STICKER_BUY_NOT_REG {
     }
 
     @Test(enabled = true, priority = 1)
-    public void FIT_LV_NOT_REG() throws Exception {
+    public void PAK_NOT_REG() throws Exception {
         try {
 
             driver.get("https://www.stensan.com/en");
+
             driver.manage().window().maximize();
 
             driver.findElement(By.xpath("//form[@id='store-first-step-form']/div[2]/div/div/div[2]/label[2]/div/div/img")).click(); //Shape cut
-
-
 
             WebElement xinput = driver.findElement(By.xpath("//*[@id=\"store-first-step-form\"]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div/div/input"));
             xinput.clear();

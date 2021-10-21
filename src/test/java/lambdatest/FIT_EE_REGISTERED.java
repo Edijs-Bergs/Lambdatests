@@ -61,6 +61,10 @@ public class FIT_EE_REGISTERED {
             driver.get("https://fitstore.ee/");
             driver.manage().window().maximize();
 
+            Thread.sleep( 2000);
+            driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
+
+
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(2) .product__content a")).click(); //Spring
             driver.findElement(By.xpath("//button[2]")).click(); //Add item

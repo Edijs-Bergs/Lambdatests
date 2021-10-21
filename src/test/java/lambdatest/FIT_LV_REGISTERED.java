@@ -60,6 +60,19 @@ public class FIT_LV_REGISTERED {
 
             driver.get("https://fitnesaveikals.lv/");
             driver.manage().window().maximize(); //Max window
+
+            Thread.sleep(2000);
+
+
+            boolean eleSelected= driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).isDisplayed();
+
+            if (eleSelected)
+            {
+                driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
+            }
+
+            driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
+
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a")).click(); //Akcijas preces
             driver.findElement(By.xpath("//a[contains(text(),'Sigma pulsometra turētājs velosipēdam')]")).click(); //2nd sale product
             driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); //Add to cart
@@ -74,13 +87,13 @@ public class FIT_LV_REGISTERED {
             driver.findElement(By.xpath("//form[@id='login-form']/button")).click(); // login
             driver.findElement(By.xpath("//img[contains(@src,'https://fitnesaveikals.lv/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //to cart
             driver.findElement(By.xpath("//a[contains(text(),'Noformēt pasūtījumu >')]")).click(); //Submit order
-            driver.findElement(By.xpath("//label[contains(.,'Samaksāt par precēm ar karti saņemšanas brīdī (tikai saņemšanai fitnesaveikals.lv birojā)')]")).click(); //Store pickup
+            driver.findElement(By.xpath("/html/body/div[1]/main/section[1]/div/div[2]/div/form/div[1]/div[1]/div[1]/div[2]/label")).click(); //Store pickup
             driver.findElement(By.xpath("//label[contains(.,'Fitnesaveikals.lv birojā')]")).click();
             driver.findElement(By.xpath("//div[5]/div/div/div/label/p")).click(); //Terms
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click(); //Submit
 
             String page_url = driver.getCurrentUrl();
-            String Substring = "cart-done";
+            String Substring = "popup/pay";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
 
