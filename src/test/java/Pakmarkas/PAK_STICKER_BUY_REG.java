@@ -52,9 +52,6 @@ public class PAK_STICKER_BUY_REG {
         }
     }
 
-
-
-
     @Test(enabled = true, priority = 1)
     public void PAK_REG() throws Exception {
         try {
@@ -101,8 +98,6 @@ public class PAK_STICKER_BUY_REG {
             driver.findElement(By.cssSelector(".btn--lg")).click();
             Thread.sleep(2000);
 
-
-
             driver.findElement(By.xpath("//label[contains(.,'Paysera')]")).click(); //paysera
             driver.findElement(By.xpath("//div[@id='delivery_free--wrapper']/label")).click(); //In office
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); //next step
@@ -116,7 +111,6 @@ public class PAK_STICKER_BUY_REG {
             String Substring = "popup/play";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
-
 
             if (result)
             {

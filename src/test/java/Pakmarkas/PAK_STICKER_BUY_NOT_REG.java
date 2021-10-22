@@ -88,7 +88,6 @@ public class PAK_STICKER_BUY_NOT_REG {
             driver.findElement(By.cssSelector(".btn--lg")).click();
             Thread.sleep(2000);
 
-
             WebElement name = driver.findElement(By.xpath("//input[@name='user[name]']")); //search name
             name.clear();
             name.sendKeys("Arturs"); //input name
@@ -107,9 +106,6 @@ public class PAK_STICKER_BUY_NOT_REG {
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); //next step
             driver.findElement(By.xpath("//label[contains(.,'I agree Purchase rules, Privacy Policy and Delivery policy')]")).click();// terms
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); //Submit order
-
-
-
 
             Thread.sleep(2000);
             String page_url = driver.getCurrentUrl();
