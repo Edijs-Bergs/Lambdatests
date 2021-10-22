@@ -90,7 +90,7 @@ public class FLYB_CALC_TEST {
 
             driver.findElement(By.id("calculator_btn")).click();
 
-            Thread.sleep(8000);
+            Thread.sleep(12000);
 
 
             driver.findElement(By.xpath("//div[@id='calc-result']/div/div/div/form/div/div[3]/input")).click();
