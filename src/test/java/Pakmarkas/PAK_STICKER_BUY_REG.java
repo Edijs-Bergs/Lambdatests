@@ -106,7 +106,7 @@ public class PAK_STICKER_BUY_REG {
             driver.findElement(By.xpath("//label[contains(.,'I agree Purchase rules, Privacy Policy and Delivery policy')]")).click();// terms
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); //Submit order
 
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/play";
             boolean result = page_url.contains(Substring);
