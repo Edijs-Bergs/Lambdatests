@@ -113,7 +113,7 @@ public class FIT_LT_UNREGISTERED {
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
             String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
+            String Substring = "popup/pay/paywindow/";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
 

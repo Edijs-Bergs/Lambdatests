@@ -108,7 +108,7 @@ public class PAK_STICKER_BUY_REG {
 
             Thread.sleep(4000);
             String page_url = driver.getCurrentUrl();
-            String Substring = "popup/play";
+            String Substring = "popup/pay/paywindow/";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
 
