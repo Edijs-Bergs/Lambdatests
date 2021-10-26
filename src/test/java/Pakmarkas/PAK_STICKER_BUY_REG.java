@@ -80,6 +80,9 @@ public class PAK_STICKER_BUY_REG {
             yinput.sendKeys("70");
 
             driver.findElement(By.xpath("//button[@id='store-first-step']")).click();
+
+            Thread.sleep( 500);
+
             driver.findElement(By.xpath("//div[@id='use_custom_size_block']/div/div/label")).click();
             driver.findElement(By.xpath("//button[@id='store-first-step']")).click();
             Thread.sleep(2000);
