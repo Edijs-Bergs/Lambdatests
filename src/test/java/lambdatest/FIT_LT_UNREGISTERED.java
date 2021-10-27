@@ -4,9 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -17,10 +15,6 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
-import junit.framework.TestResult;
 
 public class FIT_LT_UNREGISTERED {
 
@@ -55,19 +49,54 @@ public class FIT_LT_UNREGISTERED {
 
 
 
-    @Test(enabled = true, priority = 1)
-    public void FIT_LT_NOT_REG() throws Exception {
+    @Test()
+    public void FIT_LT_NOT_REG(){
         try {
 
             driver.get("https://fitstore.lt/");
+
             driver.manage().window().maximize();
+
             Thread.sleep(2000);
-            driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
+
+            /*boolean SmallDialog = driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).isDisplayed();
+            if (SmallDialog)
+            {
+                driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
+            }*/
+
+            boolean BotBanner = driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).isDisplayed();
+            if (BotBanner)
+            {
+                driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
+            }
 
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
-            driver.findElement(By.cssSelector(".col-xl-3:nth-child(3) .product__content a")).click(); //Spring
 
-            driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); //Add to cart
+            driver.findElement(By.cssSelector(".col-xl-3:nth-child(5) .product__content a")).click(); //2nd product
+
+            WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
+            String BtnClassName = BtnClass.getAttribute("class");
+            System.out.println(BtnClassName);
+
+            String NotClick = "disable-btn";
+            boolean resultNotClick = BtnClassName.contains(NotClick);
+            System.out.println(resultNotClick);
+            if (resultNotClick)
+            {
+                driver.navigate().back();
+                driver.findElement(By.cssSelector(".col-xl-3:nth-child(6) .product__content a")).click();
+                System.out.println("Went back");
+                driver.findElement(By.xpath("//button[2]")).click(); //Add item
+                driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
+            }
+            else
+            {
+                driver.findElement(By.xpath("//button[2]")).click(); //Add item
+                driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
+                System.out.println("added to cart");
+            }
+
             driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.lt/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //Go to cart
             driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); // Unregistered
@@ -116,7 +145,6 @@ public class FIT_LT_UNREGISTERED {
             String Substring = "popup/pay/paywindow/";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
-
             if (result)
             {
                 Resulting = "passed";

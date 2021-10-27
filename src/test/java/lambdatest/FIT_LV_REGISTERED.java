@@ -4,10 +4,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -17,9 +13,6 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
-import junit.framework.TestResult;
 
 public class FIT_LV_REGISTERED {
 
@@ -54,28 +47,54 @@ public class FIT_LV_REGISTERED {
 
 
 
-    @Test(enabled = true, priority = 1)
-    public void FIT_LV_REG() throws Exception {
+    @Test()
+    public void FIT_LV_REG(){
         try {
 
             driver.get("https://fitnesaveikals.lv/");
+
             driver.manage().window().maximize(); //Max window
 
             Thread.sleep(2000);
 
-
-            boolean eleSelected= driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).isDisplayed();
-
-            if (eleSelected)
+            boolean smalldialog = driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).isDisplayed();
+            if (smalldialog)
             {
                 driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
             }
 
-            driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
+            boolean botbanner = driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).isDisplayed();
+            if (botbanner)
+            {
+                driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
+            }
 
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a")).click(); //Akcijas preces
-            driver.findElement(By.xpath("//a[contains(text(),'Sigma pulsometra turētājs velosipēdam')]")).click(); //2nd sale product
-            driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); //Add to cart
+
+            driver.findElement(By.cssSelector(".col-xl-3:nth-child(3) .product__content a")).click(); //2nd product
+
+            WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
+            String BtnClassName = BtnClass.getAttribute("class");
+            System.out.println(BtnClassName);
+
+            String NotClick = "disable-btn";
+            boolean resultNotClick = BtnClassName.contains(NotClick);
+            System.out.println(resultNotClick);
+            if (resultNotClick)
+            {
+                driver.navigate().back();
+                driver.findElement(By.cssSelector(".col-xl-3:nth-child(4) .product__content a")).click();
+                System.out.println("Went back");
+                driver.findElement(By.xpath("//button[2]")).click(); //Add item
+                driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
+            }
+            else
+            {
+                driver.findElement(By.xpath("//button[2]")).click(); //Add item
+                driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
+                System.out.println("added to cart");
+            }
+
             driver.findElement(By.xpath("//img[contains(@src,'https://fitnesaveikals.lv/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //to cart
             driver.findElement(By.xpath("//a[contains(text(),'Noformēt pasūtījumu >')]")).click(); //Submit order
 
@@ -96,8 +115,6 @@ public class FIT_LV_REGISTERED {
             String Substring = "popup/pay";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
-
-
             if (result)
             {
                 Resulting = "passed";
