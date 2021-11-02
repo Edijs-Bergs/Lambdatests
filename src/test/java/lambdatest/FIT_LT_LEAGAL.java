@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class FIT_EE_REGISTERED {
+public class FIT_LT_LEAGAL {
 
     public RemoteWebDriver driver = null;
     String username = "artcunami";
@@ -27,7 +27,7 @@ public class FIT_EE_REGISTERED {
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "Finished_FIT");
-        capabilities.setCapability("name", "FIT_EE_REGISTERED");
+        capabilities.setCapability("name", "FIT_LT_LEAGAL");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
         capabilities.setCapability("version","94.0");
@@ -50,10 +50,10 @@ public class FIT_EE_REGISTERED {
 
 
     @Test()
-    public void FIT_EE_REG() {
+    public void FIT_LT_LEAG(){
         try {
 
-            driver.get("https://fitstore.ee/");
+            driver.get("https://fitstore.lt/");
 
             driver.manage().window().maximize();
 
@@ -73,7 +73,7 @@ public class FIT_EE_REGISTERED {
 
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
 
-            driver.findElement(By.cssSelector(".col-xl-3:nth-child(11) .product__content a")).click(); //2nd product
+            driver.findElement(By.cssSelector(".col-xl-3:nth-child(5) .product__content a")).click(); //2nd product
 
             WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
             String BtnClassName = BtnClass.getAttribute("class");
@@ -85,7 +85,7 @@ public class FIT_EE_REGISTERED {
             if (resultNotClick)
             {
                 driver.navigate().back();
-                driver.findElement(By.cssSelector(".col-xl-3:nth-child(12) .product__content a")).click();
+                driver.findElement(By.cssSelector(".col-xl-3:nth-child(6) .product__content a")).click();
                 System.out.println("Went back");
                 driver.findElement(By.xpath("//button[2]")).click(); //Add item
                 driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
@@ -97,51 +97,60 @@ public class FIT_EE_REGISTERED {
                 System.out.println("added to cart");
             }
 
-            driver.findElement(By.cssSelector(".menu-tablet-desktop > .menu__item--cart .menu__icon")).click(); //Go to cart
-            driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.ee/checkout')]")).click(); //to checkout
+            driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.lt/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //Go to cart
+            driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout
+            driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); // Unregistered
+            driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[1]/div[2]/label")).click(); //Leagal person
 
-            WebElement Log_email = driver.findElement(By.xpath("//input[@id='email']")); // find email
-            Log_email.sendKeys("cunami@mailinator.com"); //Send keys
-            WebElement Log_Pass = driver.findElement(By.xpath("//input[@id='password']"));// find pass
-            Log_Pass.sendKeys("Maskavas127"); //send keys
 
-            driver.findElement(By.xpath("//form[@id='login-form']/button")).click(); // login
-            driver.findElement(By.cssSelector(".menu-tablet-desktop > .menu__item--cart .menu__icon")).click(); //Go to cart
-            driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.ee/checkout')]")).click(); //to checkout
+            WebElement Company = driver.findElement(By.id("reg_jur_company")); //search Company name
+            Company.sendKeys("SIA CUNAMI WEB"); //keys name
+            WebElement Index = driver.findElement(By.id("reg_jur_zip")); //search index
+            Index.sendKeys("LV-5134"); //keys name
+            WebElement Adress = driver.findElement(By.id("reg_jur_reg_address")); //search Adress
+            Adress.sendKeys("Maskavas iela 127, LV-1003"); //keys name
+            WebElement RegNumber = driver.findElement(By.id("reg_jur_reg_nr")); //search Ren number
+            RegNumber.sendKeys("40103996361"); //keys name
+            WebElement TaxNumber = driver.findElement(By.id("reg_jur_tax_nr")); //search Tax Number
+            TaxNumber.sendKeys("LV40103996361"); //keys name
+            Select dropdownCountry1 = new Select(driver.findElement(By.xpath("//*[@id=\"reg_jur_country\"]"))); //Select Country
+            dropdownCountry1.selectByVisibleText("Latvia"); //Select LV
+            WebElement Town = driver.findElement(By.id("reg_jur_town")); //search Town
+            Town.sendKeys("Rīga"); //keys name
+            WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input
+            orderName.sendKeys("Arturs"); //keys name
+            WebElement orderSName = driver.findElement(By.id("reg_sname")); //Search Sname input
+            orderSName.sendKeys("Rasnacis"); //Keys sname
+            WebElement orderEmail = driver.findElement(By.id("reg_email")); //search Email
+            orderEmail.sendKeys("cunami@mailinator.com"); //Input email
+            Select dropdowntel = new Select(driver.findElement(By.xpath("//select[@name='user[phone_country]']"))); //Select dropdows
+            dropdowntel.selectByVisibleText("LV +371"); //Select LV index
+            WebElement phone = driver.findElement(By.id("reg_tel")); //Search phone
+            phone.sendKeys("20000000");
 
-            driver.findElement(By.xpath("//div[2]/label")).click(); //Select paysera
-            driver.findElement(By.xpath("//div[@id='delivery_courier--wrapper']/label")).click(); //Delliver by courier
+            driver.findElement(By.xpath("//div[6]/div/div/div[2]/label")).click(); //Select paysera
+            driver.findElement(By.xpath("(//div[@id='delivery_courier--wrapper']/label)[2]")).click(); //Delliver by courier
 
-            Select dropdownCountry = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_country_3']"))); //Select dropdows
-            dropdownCountry.selectByVisibleText("Estonia"); //Select lithuania
+            Select dropdownCountry = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_country_2']"))); //Select dropdows
+            dropdownCountry.selectByVisibleText("Lithuania"); //Select lithuania
 
-            WebElement Zip_code = driver.findElement(By.xpath("//input[@id='shipping_zip_3']")); //Find zip
-            Zip_code.sendKeys("75704"); //input zip
-
-            WebElement City = driver.findElement(By.xpath("//input[@id='shipping_city_3']")); //City
-            City.sendKeys("Tallin"); //input city
-
-            Select dropcounty = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_3']"))); //Select dropdown
-            dropcounty.selectByVisibleText("Valga County"); //County
-
-            Select dropParish = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_area_3']"))); //Select dropdown
-            dropParish.selectByVisibleText("Valga Parish"); //parish
-
-            WebElement Street = driver.findElement(By.xpath("//input[@id='shipping_address_3']")); //Street
+            WebElement Zip_code = driver.findElement(By.xpath("//input[@id='shipping_zip_2']")); //Find zip
+            Zip_code.sendKeys("LT-00000"); //input zip
+            WebElement City = driver.findElement(By.xpath("//input[@id='shipping_city_2']")); //City
+            City.sendKeys("Vilnus"); //input city
+            WebElement Street = driver.findElement(By.xpath("//input[@id='shipping_address_2']")); //Street
             Street.sendKeys("Ringuvos"); //input street
-
-            Select dropdowntel2 = new Select(driver.findElement(By.xpath("//select[@name='shipping[courier][phone_country]']"))); //Select dropdown
+            Select dropdowntel2 = new Select(driver.findElement(By.xpath("(//select[@name='shipping[courier][phone_country]'])[2]"))); //Select dropdown
             dropdowntel2.selectByVisibleText("LV +371"); //Select LV index
-
-            WebElement phone2 = driver.findElement(By.xpath("//input[@id='shipping_phone_3']")); //Search phone
+            WebElement phone2 = driver.findElement(By.xpath("//input[@id='shipping_phone_2']")); //Search phone
             phone2.sendKeys("20000000");
 
-            driver.findElement(By.cssSelector(".col-lg-6:nth-child(1) .checkbox__label")).click(); //accept terms
+            driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[9]/div/div/div/label/p")).click(); //accept terms
 
-            driver.findElement(By.xpath("//button[@id='create_order_btn']")).click();  //submit
+            driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
             String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
+            String Substring = "popup/pay/paywindow/";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
             if (result)
@@ -167,3 +176,4 @@ public class FIT_EE_REGISTERED {
         }
     }
 }
+

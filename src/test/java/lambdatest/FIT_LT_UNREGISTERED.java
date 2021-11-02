@@ -65,11 +65,11 @@ public class FIT_LT_UNREGISTERED {
                 driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
             }*/
 
-            boolean BotBanner = driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).isDisplayed();
+            /*boolean BotBanner = driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).isDisplayed();
             if (BotBanner)
             {
                 driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
-            }
+            }*/
 
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
 

@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class FIT_EE_UNREGISTERED {
+public class FIT_EE_LEAGAL {
 
     public RemoteWebDriver driver = null;
     String username = "artcunami";
@@ -27,7 +27,7 @@ public class FIT_EE_UNREGISTERED {
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "Finished_FIT");
-        capabilities.setCapability("name", "FIT_EE_NOT_REGISTERED");
+        capabilities.setCapability("name", "FIT_EE_LEAGAL");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
         capabilities.setCapability("version","94.0");
@@ -50,7 +50,7 @@ public class FIT_EE_UNREGISTERED {
 
 
     @Test()
-    public void FIT_EE_NOT_REG(){
+    public void FIT_EE_LEAG(){
         try {
 
             driver.get("https://fitstore.ee/");
@@ -100,19 +100,32 @@ public class FIT_EE_UNREGISTERED {
             driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.ee/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //Go to cart
             driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.ee/checkout')]")).click(); //to checkout
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); // Unregistered
+            driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[1]/div[2]/label")).click(); //Leagal person
+
+
+            WebElement Company = driver.findElement(By.id("reg_jur_company")); //search Company name
+            Company.sendKeys("SIA CUNAMI WEB"); //keys name
+            WebElement Index = driver.findElement(By.id("reg_jur_zip")); //search index
+            Index.sendKeys("LV-5134"); //keys name
+            WebElement Adress = driver.findElement(By.id("reg_jur_reg_address")); //search Adress
+            Adress.sendKeys("Maskavas iela 127, LV-1003"); //keys name
+            WebElement RegNumber = driver.findElement(By.id("reg_jur_reg_nr")); //search Ren number
+            RegNumber.sendKeys("40103996361"); //keys name
+            WebElement TaxNumber = driver.findElement(By.id("reg_jur_tax_nr")); //search Tax Number
+            TaxNumber.sendKeys("LV40103996361"); //keys name
+            Select dropdownCountry1 = new Select(driver.findElement(By.xpath("//*[@id=\"reg_jur_country\"]"))); //Select Country
+            dropdownCountry1.selectByVisibleText("Latvia"); //Select LV
+            WebElement Town = driver.findElement(By.id("reg_jur_town")); //search Town
+            Town.sendKeys("Rīga"); //keys name
 
             WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input
             orderName.sendKeys("Arturs"); //keys name
-
             WebElement orderSName = driver.findElement(By.id("reg_sname")); //Search Sname input
             orderSName.sendKeys("Rasnacis"); //Keys sname
-
             WebElement orderEmail = driver.findElement(By.id("reg_email")); //search Email
             orderEmail.sendKeys("cunami@mailinator.com"); //Input email
-
             Select dropdowntel = new Select(driver.findElement(By.xpath("//select[@name='user[phone_country]']"))); //Select dropdows
             dropdowntel.selectByVisibleText("LV +371"); //Select LV index
-
             WebElement phone = driver.findElement(By.id("reg_tel")); //Search phone
             phone.sendKeys("20000000");
 
@@ -174,3 +187,4 @@ public class FIT_EE_UNREGISTERED {
         }
     }
 }
+
