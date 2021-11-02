@@ -114,8 +114,6 @@ public class FIT_LV_LEAGAL {
             RegNumber.sendKeys("40103996361"); //keys name
             WebElement TaxNumber = driver.findElement(By.id("reg_jur_tax_nr")); //search Tax Number
             TaxNumber.sendKeys("LV40103996361"); //keys name
-            Select dropdownCountry = new Select(driver.findElement(By.xpath("//*[@id=\"reg_jur_country\"]"))); //Select Country
-            dropdownCountry.selectByVisibleText("Latvia"); //Select LV
             WebElement Town = driver.findElement(By.id("reg_jur_town")); //search Town
             Town.sendKeys("Rīga"); //keys name
             WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input
