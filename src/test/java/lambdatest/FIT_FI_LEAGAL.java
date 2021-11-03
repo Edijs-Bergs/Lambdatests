@@ -71,7 +71,7 @@ public class FIT_FI_LEAGAL {
 
             driver.findElement(By.xpath("//nav[@id='nav']/div/ul/li[6]/a")).click(); //Sports
 
-            driver.findElement(By.cssSelector(".col-xl-4:nth-child(23) .product__content a")).click(); //Bottle
+            driver.findElement(By.cssSelector(".col-xl-4:nth-child(10) .product__content a")).click(); //Bottle
 
             WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
             String BtnClassName = BtnClass.getAttribute("class");
@@ -83,7 +83,7 @@ public class FIT_FI_LEAGAL {
             if (resultNotClick)
             {
                 driver.navigate().back();
-                driver.findElement(By.cssSelector(".col-xl-4:nth-child(24) .product__content a")).click();
+                driver.findElement(By.cssSelector(".col-xl-4:nth-child(11) .product__content a")).click();
                 System.out.println("Went back");
                 driver.findElement(By.xpath("//button[2]")).click(); //Add item
                 driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
