@@ -56,16 +56,26 @@ public class FIT_LV_UNREGISTERED {
 
             Thread.sleep(2000);
 
-            boolean smalldialog = driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).isDisplayed();
-            if (smalldialog)
+            boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
+            if (smalldialog != true)
             {
                 driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
+                System.out.println("Big banner was there");
+            }
+            else
+            {
+                System.out.println("Big banner wasn't there");
             }
 
-            boolean botbanner = driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).isDisplayed();
-            if (botbanner)
+            boolean botbanner = driver.findElements(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).size() == 0;
+            if (botbanner != true)
             {
                 driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
+                System.out.println("Bottom banner was there");
+            }
+            else
+            {
+                System.out.println("Big banner wasn't there");
             }
 
             driver.findElement(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).click(); //Akcijas preces

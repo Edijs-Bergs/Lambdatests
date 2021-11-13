@@ -55,19 +55,30 @@ public class FIT_FI_UNREGISTERED {
             driver.get("https://fitstore.fi/");
             driver.manage().window().maximize();
 
-            /*Thread.sleep(2000);
+            Thread.sleep(2000);
 
-            boolean SmallDialog = driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).isDisplayed();
-            if (SmallDialog)
+            boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
+            if (smalldialog != true)
             {
                 driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
+                System.out.println("Big banner was there");
+            }
+            else
+            {
+                System.out.println("Big banner wasn't there");
             }
 
-            boolean BotBanner = driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).isDisplayed();
-            if (BotBanner)
+            boolean botbanner = driver.findElements(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).size() == 0;
+            if (botbanner != true)
             {
                 driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
-            }*/
+                System.out.println("Bottom banner was there");
+            }
+            else
+            {
+                System.out.println("Big banner wasn't there");
+            }
+
 
             driver.findElement(By.xpath("//nav[@id='nav']/div/ul/li[6]/a")).click(); //Sports
 
