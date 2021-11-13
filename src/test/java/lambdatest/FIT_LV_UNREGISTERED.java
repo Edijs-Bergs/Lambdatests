@@ -62,11 +62,11 @@ public class FIT_LV_UNREGISTERED {
                 driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
             }
 
-            /*boolean botbanner = driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).isDisplayed();
+            boolean botbanner = driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).isDisplayed();
             if (botbanner)
             {
                 driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
-            }*/
+            }
 
             driver.findElement(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).click(); //Akcijas preces
 
