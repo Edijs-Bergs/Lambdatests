@@ -27,7 +27,7 @@ public class LAB_UNREG {
     @BeforeTest
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("build", "LAB_FINEISHED");
+        capabilities.setCapability("build", "LAB_FINISHED");
         capabilities.setCapability("name", "LAB_UNREG");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
