@@ -29,6 +29,10 @@ pipelines:
           - mvn -Dtest=FIT_FI_LEAGAL test
           - mvn -Dtest=PAK_STICKER_BUY_REG test
           - mvn -Dtest=PAK_STICKER_BUY_NOT_REG test
+          - mvn -Dtest=LAB_UNREG test
+          - mvn -Dtest=LAB_LEAGAL test
+          - mvn -Dtest=LAB_REGISTERED test
+          - mvn -Dtest=LAB_REG_LEAGAL test
 
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
