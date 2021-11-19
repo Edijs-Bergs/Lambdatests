@@ -92,7 +92,7 @@ public class LAB_UNREG {
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
 //            driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div")).click(); // Accept terms
-            WebElement element = driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div/input"));
+            WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
             JavascriptExecutor js =(JavascriptExecutor)driver;
             js.executeScript("arguments[0].click();", element);
             System.out.println("Terms Accepted");

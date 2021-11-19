@@ -84,6 +84,8 @@ public class LAB_REG_LEAGAL {
             System.out.println("Recive Info selected");
             Select DropCountryLocker = new Select(driver.findElement(By.xpath("//*[@id=\"dpd_lockers_country\"]")));// locker country
             DropCountryLocker.selectByVisibleText("Latvia"); // Option latvia
+            WebElement LockerTel = driver.findElement(By.xpath("//input[@id='dpd_locker_phone']")); //Serch locker number
+            LockerTel.sendKeys("20000000"); //
 
             driver.findElement(By.xpath("/html/body/div[1]/section/div/div[2]/form/div[2]/div[4]/div/div/span/span[1]/span")).click(); // select dpd locker
             WebElement LockerInput = driver.findElement(By.xpath("/html/body/span/span/span[1]/input")); // find locker input
@@ -93,7 +95,7 @@ public class LAB_REG_LEAGAL {
             System.out.println("Clicked Next step");
             Thread.sleep(2000);
 //            driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div/label")).click(); // Accept terms
-            WebElement element = driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[8]/div/div/input"));
+            WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
             JavascriptExecutor js =(JavascriptExecutor)driver;
             js.executeScript("arguments[0].click();", element);
             System.out.println("Terms Accepted");
