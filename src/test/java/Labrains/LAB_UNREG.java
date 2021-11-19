@@ -88,6 +88,7 @@ public class LAB_UNREG {
             driver.findElement(By.xpath("//*[@id=\"dpd_locker\"]/div[4]/div/div/span/span[1]/span")).click(); // select dpd locker
             WebElement LockerInput = driver.findElement(By.cssSelector(".select2-search__field")); // find locker input
             LockerInput.sendKeys("Rīga"); //input keys to search
+            Thread.sleep(2000);
             driver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.RETURN); // hit enter key
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
