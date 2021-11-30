@@ -114,7 +114,7 @@ public class FIT_FI_REGISTERED {
 
             driver.findElement(By.xpath("//form[@id='login-form']/button")).click(); //login
 
-            driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.fi/themes/fitstore-fi/assets/img/cart.svg')]")).click(); //Go to cart
+            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[4]/a/img")).click(); //Go to cart
             driver.findElement(By.xpath("//div[@id='cartTable']/div[4]/a[2]")).click(); //to checkout
 
             driver.findElement(By.xpath("//div[2]/label")).click(); //Select paysera
