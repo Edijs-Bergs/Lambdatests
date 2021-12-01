@@ -132,6 +132,8 @@ public class FIT_FI_UNREGISTERED {
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
+            Thread.sleep(2000);
+
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";
             boolean result = page_url.contains(Substring);

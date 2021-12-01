@@ -151,6 +151,8 @@ public class FIT_LT_UNREGISTERED {
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
+            Thread.sleep(2000);
+
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay/paywindow/";
             boolean result = page_url.contains(Substring);

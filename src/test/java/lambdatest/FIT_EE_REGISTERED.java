@@ -150,6 +150,8 @@ public class FIT_EE_REGISTERED {
 
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click();  //submit
 
+            Thread.sleep(2000);
+
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";
             boolean result = page_url.contains(Substring);

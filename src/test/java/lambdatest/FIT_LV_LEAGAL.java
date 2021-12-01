@@ -141,6 +141,7 @@ public class FIT_LV_LEAGAL {
             driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click(); //Submit
 
             Thread.sleep(2000);
+
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";
             boolean result = page_url.contains(Substring);
