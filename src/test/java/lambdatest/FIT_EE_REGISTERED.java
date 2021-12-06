@@ -124,6 +124,7 @@ public class FIT_EE_REGISTERED {
 
             Select dropdownCountry = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_country_3']"))); //Select dropdows
             dropdownCountry.selectByVisibleText("Estonia"); //Select lithuania
+            Thread.sleep( 2000);
 
             WebElement Zip_code = driver.findElement(By.xpath("//input[@id='shipping_zip_3']")); //Find zip
             Zip_code.sendKeys("75704"); //input zip
@@ -133,15 +134,18 @@ public class FIT_EE_REGISTERED {
 
             Select dropcounty = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_3']"))); //Select dropdown
             dropcounty.selectByVisibleText("Valga County"); //County
+            Thread.sleep( 2000);
 
             Select dropParish = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_area_3']"))); //Select dropdown
             dropParish.selectByVisibleText("Valga Parish"); //parish
+            Thread.sleep( 2000);
 
             WebElement Street = driver.findElement(By.xpath("//input[@id='shipping_address_3']")); //Street
             Street.sendKeys("Ringuvos"); //input street
 
             Select dropdowntel2 = new Select(driver.findElement(By.xpath("//select[@name='shipping[courier][phone_country]']"))); //Select dropdown
             dropdowntel2.selectByVisibleText("LV +371"); //Select LV index
+            Thread.sleep( 2000);
 
             WebElement phone2 = driver.findElement(By.xpath("//input[@id='shipping_phone_3']")); //Search phone
             phone2.sendKeys("20000000");

@@ -123,6 +123,7 @@ public class FIT_LT_LEAGAL {
             RegNumber.sendKeys("40103996361"); //keys name
             WebElement TaxNumber = driver.findElement(By.id("reg_jur_tax_nr")); //search Tax Number
             TaxNumber.sendKeys("LV40103996361"); //keys name
+            Thread.sleep( 2000);
             Select dropdownCountry1 = new Select(driver.findElement(By.xpath("//*[@id=\"reg_jur_country\"]"))); //Select Country
             dropdownCountry1.selectByVisibleText("Latvia"); //Select LV
             WebElement Town = driver.findElement(By.id("reg_jur_town")); //search Town
@@ -140,6 +141,7 @@ public class FIT_LT_LEAGAL {
 
             driver.findElement(By.xpath("//div[6]/div/div/div[2]/label")).click(); //Select paysera
             driver.findElement(By.xpath("(//div[@id='delivery_courier--wrapper']/label)[2]")).click(); //Delliver by courier
+            Thread.sleep( 2000);
 
             Select dropdownCountry = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_country_2']"))); //Select dropdows
             dropdownCountry.selectByVisibleText("Lithuania"); //Select lithuania
@@ -150,6 +152,7 @@ public class FIT_LT_LEAGAL {
             City.sendKeys("Vilnus"); //input city
             WebElement Street = driver.findElement(By.xpath("//input[@id='shipping_address_2']")); //Street
             Street.sendKeys("Ringuvos"); //input street
+            Thread.sleep( 2000);
             Select dropdowntel2 = new Select(driver.findElement(By.xpath("(//select[@name='shipping[courier][phone_country]'])[2]"))); //Select dropdown
             dropdowntel2.selectByVisibleText("LV +371"); //Select LV index
             WebElement phone2 = driver.findElement(By.xpath("//input[@id='shipping_phone_2']")); //Search phone

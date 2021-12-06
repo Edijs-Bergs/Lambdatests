@@ -118,6 +118,7 @@ public class FIT_FI_UNREGISTERED {
 
             WebElement orderEmail = driver.findElement(By.id("reg_email")); //search Email
             orderEmail.sendKeys("cunami@mailinator.com"); //Input email
+            Thread.sleep( 2000);
 
             Select dropdowntel = new Select(driver.findElement(By.xpath("//select[@name='user[phone_country]']"))); //Select dropdows
             dropdowntel.selectByVisibleText("LV +371"); //Select LV index

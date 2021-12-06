@@ -121,6 +121,7 @@ public class FIT_FI_LEAGAL {
             RegNumber.sendKeys("40103996361"); //keys name
             WebElement TaxNumber = driver.findElement(By.id("reg_jur_tax_nr")); //search Tax Number
             TaxNumber.sendKeys("LV40103996361"); //keys name
+            Thread.sleep( 2000);
             Select dropdownCountry = new Select(driver.findElement(By.xpath("//*[@id=\"reg_jur_country\"]"))); //Select Country
             dropdownCountry.selectByVisibleText("Latvia"); //Select LV
             WebElement Town = driver.findElement(By.id("reg_jur_town")); //search Town
@@ -131,6 +132,7 @@ public class FIT_FI_LEAGAL {
             orderSName.sendKeys("Rasnacis"); //Keys sname
             WebElement orderEmail = driver.findElement(By.id("reg_email")); //search Email
             orderEmail.sendKeys("cunami@mailinator.com"); //Input email
+            Thread.sleep( 2000);
             Select dropdowntel = new Select(driver.findElement(By.xpath("//select[@name='user[phone_country]']"))); //Select dropdows
             dropdowntel.selectByVisibleText("LV +371"); //Select LV index
             WebElement phone = driver.findElement(By.id("reg_tel")); //Search phone
