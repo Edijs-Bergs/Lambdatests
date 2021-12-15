@@ -84,7 +84,7 @@ public class PAK_STICKER_BUY_NOT_REG {
             Select dropdowndiameter = new Select(driver.findElement(By.xpath("//select[@id='core_inner_diameter']"))); //select dropdown
             dropdowndiameter.selectByVisibleText("40 mm"); //select diameter
             Select dropdownrolling = new Select(driver.findElement(By.xpath("//select[@name='rolling']"))); //select dropdown
-            dropdownrolling.selectByVisibleText("Inner"); //select rolling
+            dropdownrolling.selectByVisibleText("Outer"); //select rolling
 
             driver.findElement(By.xpath("//button[@id='store-second-step']")).click(); //2nd submit
             Thread.sleep(2000);
