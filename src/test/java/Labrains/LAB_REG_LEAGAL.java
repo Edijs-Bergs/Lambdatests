@@ -61,19 +61,28 @@ public class LAB_REG_LEAGAL {
             Thread.sleep(2000);
 
             driver.findElement(By.xpath("//*[@id=\"cookiesAlert\"]/div/div/div[2]/button[1]")).click(); //Accept cookies
+            Thread.sleep(2000);
 
             driver.findElement(By.xpath("//*[@id=\"header\"]/nav/ul[2]/li[2]/a")).click();
+            Thread.sleep(2000);
             WebElement Email = driver.findElement(By.xpath("//*[@id=\"login_email\"]")); //Web element Email find
+            Thread.sleep(2000);
             Email.sendKeys("cunamileagal@mailinator.com"); //Send Email
+            Thread.sleep(2000);
             WebElement PSW = driver.findElement(By.xpath("//*[@id=\"login_pswd\"]")); //Web element Email find
+            Thread.sleep(2000);
             PSW.sendKeys("Maskavas127"); //Send Email
+            Thread.sleep(2000);
             driver.findElement(By.xpath("//*[@id=\"login-form\"]/button")).click();
             Thread.sleep(2000);
 
             driver.findElement(By.xpath("//a[contains(@href, 'https://labrains.eu/en/category/1/shop')]")).click(); // click shop in nav bar
+            Thread.sleep(2000);
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .btn > span")).click(); // Click on 1st product
+            Thread.sleep(2000);
             driver.findElement(By.cssSelector(".radio:nth-child(3) > .radio__label")).click(); //first radio
+            Thread.sleep(2000);
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); //plus button
             driver.findElement(By.xpath("(//button[@type='submit'])[3]")).click(); //Add to cart
             driver.findElement(By.xpath("//a[contains(@href, 'https://labrains.eu/en/cart')]")).click(); //Open cart
