@@ -90,12 +90,15 @@ public class LAB_REGISTERED {
             driver.findElement(By.xpath("//label[contains(.,'Pay with your local banks. Powered by PaySera')]")).click(); // paysera
             driver.findElement(By.xpath("//div[@id='delivery_dpd_locker--wrapper']/label")).click(); // dpd locker
             System.out.println("Recive Info selected");
+
             Select DropCountryLocker = new Select(driver.findElement(By.xpath("//*[@id=\"dpd_lockers_country\"]")));// locker country
             DropCountryLocker.selectByVisibleText("Latvia"); // Option latvia
+
             WebElement LockerTel = driver.findElement(By.xpath("//input[@id='dpd_locker_phone']")); //Serch locker number
             LockerTel.sendKeys("20000000"); //
 
-            driver.findElement(By.xpath("/html/body/div[1]/section/div/div[2]/form/div[2]/div[4]/div/div/span/span[1]/span")).click(); // select dpd locker
+            driver.findElement(By.xpath("//div[@id='dpd_locker']/div[4]/div/div/span/span/span/span[2]")).click(); // select dpd locker
+
             WebElement LockerInput = driver.findElement(By.xpath("/html/body/span/span/span[1]/input")); // find locker input
             LockerInput.sendKeys("Rīga"); //input keys to search
             Thread.sleep(2000);
