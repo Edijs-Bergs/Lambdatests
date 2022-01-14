@@ -101,7 +101,7 @@ public class LAB_REGISTERED {
 
             WebElement LockerInput = driver.findElement(By.xpath("/html/body/span/span/span[1]/input")); // find locker input
             LockerInput.sendKeys("Rīga"); //input keys to search
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             driver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.RETURN); // hit enter key
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
