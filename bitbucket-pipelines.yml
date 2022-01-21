@@ -5,7 +5,7 @@
 
 # Prerequisites: pom.xml and appropriate project structure should exist in the repository.
 
-image: maven:3.6.3
+image: maven:3.6.3 postman/newman
 
 pipelines:
   default:
@@ -13,7 +13,7 @@ pipelines:
         caches:
           - maven
         script:
-          - postman/newman
+          
           - mvn clean install -U
           - mvn clean install -DskipTests
           - mvn -Dtest=FIT_LV_REGISTERED test
