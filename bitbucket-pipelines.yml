@@ -15,7 +15,6 @@ pipelines:
         script:
           - mvn clean install -U
           - mvn clean install -DskipTests
-          - npm i newman -g;
           - mvn -Dtest=FIT_LV_REGISTERED test
           - mvn -Dtest=FIT_LV_UNREGISTERED test
           - mvn -Dtest=FIT_LV_LEAGAL test
@@ -34,7 +33,6 @@ pipelines:
           - mvn -Dtest=LAB_LEAGAL test
           - mvn -Dtest=LAB_REGISTERED test
           - mvn -Dtest=LAB_REG_LEAGAL test
-          - newman run https://api.getpostman.com/collections/{{collection_uid}}?apikey={{postman-api-key-here}}
 
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
