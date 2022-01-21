@@ -13,7 +13,6 @@ pipelines:
         caches:
           - maven
         script:
-          - newman --version
           - mvn clean install -U
           - mvn clean install -DskipTests
           - mvn -Dtest=FIT_LV_REGISTERED test
@@ -34,7 +33,6 @@ pipelines:
           - mvn -Dtest=LAB_LEAGAL test
           - mvn -Dtest=LAB_REGISTERED test
           - mvn -Dtest=LAB_REG_LEAGAL test
-          - newman run https://api.getpostman.com/collections/16433126-ed1e7d81-a113-4d81-93cd-1c952b979783?apikey=PMAK-61ea8fc9e0c646003b204d26-af5220c394891fc91b611a0a02913c5b83
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
           - pipe: atlassian/checkstyle-report:0.2.0
