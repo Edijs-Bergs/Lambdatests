@@ -81,7 +81,10 @@ public class FIT_LV_REGISTERED {
 
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a")).click(); //Akcijas preces
 
-            driver.findElement(By.cssSelector(".col-xl-3:nth-child(3) .product__content a")).click(); //2nd product
+            driver.findElement(By.xpath("//*[@id=\"filter\"]/div[5]/div/label")).click(); // filter stock
+            Thread.sleep( 2000); //pause
+
+            driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
 
             WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
             String BtnClassName = BtnClass.getAttribute("class");
@@ -93,7 +96,7 @@ public class FIT_LV_REGISTERED {
             if (resultNotClick)
             {
                 driver.navigate().back();
-                driver.findElement(By.cssSelector(".col-xl-3:nth-child(4) .product__content a")).click();
+                driver.findElement(By.cssSelector(".col-xl-3:nth-child(2) .product__content a")).click();
                 System.out.println("Went back");
                 driver.findElement(By.xpath("//button[2]")).click(); //Add item
                 driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
