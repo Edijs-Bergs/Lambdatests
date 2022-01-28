@@ -33,7 +33,6 @@ pipelines:
           - mvn -Dtest=LAB_LEAGAL test
           - mvn -Dtest=LAB_REGISTERED test
           - mvn -Dtest=LAB_REG_LEAGAL test
-
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
           - pipe: atlassian/checkstyle-report:0.2.0
