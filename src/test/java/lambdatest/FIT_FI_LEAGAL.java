@@ -82,7 +82,7 @@ public class FIT_FI_LEAGAL {
             driver.findElement(By.xpath("//nav[@id='nav']/div/ul/li[6]/a")).click(); //Sports
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            Thread.sleep( 2000); //pause
+            Thread.sleep(2000); //pause
 
             driver.findElement(By.cssSelector(".col-xl-4:nth-child(1) .product__content a")).click(); //Bottle
 
