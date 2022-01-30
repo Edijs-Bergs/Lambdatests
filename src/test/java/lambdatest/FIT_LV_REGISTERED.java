@@ -82,7 +82,7 @@ public class FIT_LV_REGISTERED {
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a")).click(); //Akcijas preces
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[5]/div/label")).click(); // filter stock
-            Thread.sleep(5000); //pause
+            Thread.sleep(7000); //pause
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
 

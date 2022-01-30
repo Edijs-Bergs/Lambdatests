@@ -83,7 +83,7 @@ public class FIT_FI_UNREGISTERED {
             driver.findElement(By.xpath("//nav[@id='nav']/div/ul/li[6]/a")).click(); //Sports
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            Thread.sleep(5000);
+            Thread.sleep(7000);
 
             driver.findElement(By.cssSelector(".col-xl-4:nth-child(2) .product__content a")).click(); //Bottle
 
