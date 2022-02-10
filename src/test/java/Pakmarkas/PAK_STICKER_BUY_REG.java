@@ -60,15 +60,17 @@ public class PAK_STICKER_BUY_REG {
 
             driver.manage().window().maximize();
 
-            driver.findElement(By.xpath("//*[@id=\"page\"]/header/div[3]/div/div/div[2]/ul/li[1]/a")).click();
+            driver.findElement(By.xpath("//*[@id=\"page\"]/div[1]/div[1]/div/div")).click();
+            driver.findElement(By.xpath("//*[@id=\"header_bottom_id\"]/div/div/div/div[2]/ul/li[1]/a")).click();
             WebElement logemail = driver.findElement(By.xpath("//*[@id=\"login_email\"]"));
             logemail.sendKeys("cunami@mailinator.com");
             WebElement logpass = driver.findElement(By.xpath("//*[@id=\"login_pswd\"]"));
             logpass.sendKeys("Maskavas127");
             driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[4]/button")).click();
             Thread.sleep( 2000);
-            driver.findElement(By.xpath("//*[@id=\"page\"]/header/div[2]/div/div/div[1]/div/a")).click();
+            driver.findElement(By.xpath("//*[@id=\"page\"]/section[1]/div/div/div[1]/div[4]/a[2]")).click();
             Thread.sleep( 1000);
+
 
             driver.findElement(By.xpath("//form[@id='store-first-step-form']/div[2]/div/div/div[2]/label[2]/div/div/img")).click(); //Shape cut
 

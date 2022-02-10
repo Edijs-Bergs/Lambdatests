@@ -60,6 +60,8 @@ public class PAK_STICKER_BUY_NOT_REG {
 
             driver.manage().window().maximize();
 
+            driver.findElement(By.xpath("//*[@id=\"page\"]/section[1]/div/div/div[1]/div[4]/a[2]")).click();
+
             driver.findElement(By.xpath("//form[@id='store-first-step-form']/div[2]/div/div/div[2]/label[2]/div/div/img")).click(); //Shape cut
 
             WebElement xinput = driver.findElement(By.xpath("//*[@id=\"store-first-step-form\"]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div/div/input"));
