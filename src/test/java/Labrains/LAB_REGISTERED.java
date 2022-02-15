@@ -117,7 +117,7 @@ public class LAB_REGISTERED {
 
             Thread.sleep(2000);
             String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
+            String Substring = "payment.ecommerce.sebgroup.com/";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
             if (result)
