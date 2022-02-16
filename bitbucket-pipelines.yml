@@ -16,8 +16,11 @@ pipelines:
           - mvn clean install -U
           - mvn clean install -DskipTests
           - mvn -Dtest=FIT_LV_REGISTERED test
+          - mvn -Dtest=FIT_LV_REGISTERED_IN_STORE test
           - mvn -Dtest=FIT_LV_UNREGISTERED test
+          - mvn -Dtest=FIT_LV_UNREGISTERED_IN_STORE test
           - mvn -Dtest=FIT_LV_LEAGAL test
+          - mvn -Dtest=FIT_LV_LEAGAL_IN_STORE test
           - mvn -Dtest=FIT_LT_REGISTERED test
           - mvn -Dtest=FIT_LT_UNREGISTERED test
           - mvn -Dtest=FIT_LT_LEAGAL test
@@ -33,6 +36,10 @@ pipelines:
           - mvn -Dtest=LAB_LEAGAL test
           - mvn -Dtest=LAB_REGISTERED test
           - mvn -Dtest=LAB_REG_LEAGAL test
+          - mvn -Dtest=LAB_UNREG_IN_STORE test
+          - mvn -Dtest=LAB_LEAGAL_IN_STORE test
+          - mvn -Dtest=LAB_REGISTERED_IN_STORE test
+          - mvn -Dtest=LAB_REG_LEAGAL_IN_STORE test
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
           - pipe: atlassian/checkstyle-report:0.2.0
