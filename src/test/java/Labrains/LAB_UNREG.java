@@ -83,7 +83,7 @@ public class LAB_UNREG {
             Select DropCountryPhone = new Select(driver.findElement(By.xpath("//*[@id=\"dpd_locker\"]/div[3]/div/div[1]/div/div/select"))); //Search index
             DropCountryPhone.selectByVisibleText("LV +371"); //LV index
             WebElement LockerTel = driver.findElement(By.xpath("//input[@id='dpd_locker_phone']")); //Serch locker number
-            LockerTel.sendKeys("20000000"); //
+            LockerTel.sendKeys("28452330"); //
 
             driver.findElement(By.xpath("//*[@id=\"dpd_locker\"]/div[4]/div/div/span/span[1]/span")).click(); // select dpd locker
             WebElement LockerInput = driver.findElement(By.cssSelector(".select2-search__field")); // find locker input
@@ -94,30 +94,46 @@ public class LAB_UNREG {
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
             Thread.sleep(2000);
+//
+            WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
+            String Delivery = GetDelivery.getText();
+            System.out.println(Delivery);
 
-
-//            driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div")).click(); // Accept terms
-            WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
-            JavascriptExecutor js =(JavascriptExecutor)driver;
-            js.executeScript("arguments[0].click();", element);
-            System.out.println("Terms Accepted");
-            driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
-            System.out.println("Purchase created");
-
-            Thread.sleep(2000);
-            String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
-            boolean result = page_url.contains(Substring);
-            System.out.println(result);
-            if (result)
+            String NotClick = "DPD Pickup point";
+            boolean DeliverMethod = Delivery.contains(NotClick);
+            System.out.println(DeliverMethod);
+            if (DeliverMethod)
             {
-                Resulting = "passed";
+                WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
+                JavascriptExecutor js =(JavascriptExecutor)driver;
+                js.executeScript("arguments[0].click();", element);
+                System.out.println("Terms Accepted");
+                driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
+                System.out.println("Purchase created");
+
+                Thread.sleep(2000);
+                String page_url = driver.getCurrentUrl();
+                System.out.println(page_url);
+
+                String Substring = "/popup/pay";
+                boolean result = page_url.contains(Substring);
+                System.out.println(result);
+                if (result)
+                {
+                   Resulting = "passed";
+               }
+                else
+               {
+                  Resulting = "failed";
+               }
+                System.out.println(Resulting);
             }
             else
             {
                 Resulting = "failed";
+                System.out.println("Dellivery wasnt DPD");
+
             }
-            System.out.println(Resulting);
 
 //            Thread.sleep(2000);
 //

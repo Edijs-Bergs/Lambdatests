@@ -95,7 +95,7 @@ public class LAB_REGISTERED {
             DropCountryLocker.selectByVisibleText("Latvia"); // Option latvia
 
             WebElement LockerTel = driver.findElement(By.xpath("//input[@id='dpd_locker_phone']")); //Serch locker number
-            LockerTel.sendKeys("20000000"); //
+            LockerTel.sendKeys("28452330"); //
 
             driver.findElement(By.xpath("//div[@id='dpd_locker']/div[4]/div/div/span/span/span/span[2]")).click(); // select dpd locker
 

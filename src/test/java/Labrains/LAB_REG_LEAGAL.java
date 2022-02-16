@@ -94,7 +94,7 @@ public class LAB_REG_LEAGAL {
             Select DropCountryLocker = new Select(driver.findElement(By.xpath("//*[@id=\"dpd_lockers_country\"]")));// locker country
             DropCountryLocker.selectByVisibleText("Latvia"); // Option latvia
             WebElement LockerTel = driver.findElement(By.xpath("//input[@id='dpd_locker_phone']")); //Serch locker number
-            LockerTel.sendKeys("20000000"); //
+            LockerTel.sendKeys("28452330"); //
 
             driver.findElement(By.xpath("//div[@id='dpd_locker']/div[4]/div/div/span/span/span/span[2]")).click(); // select dpd locker
             WebElement LockerInput = driver.findElement(By.xpath("/html/body/span/span/span[1]/input")); // find locker input

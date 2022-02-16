@@ -75,7 +75,7 @@ public class LAB_LEAGAL {
             WebElement Email = driver.findElement(By.xpath("//input[@name='user[email]']")); //Web element Email find
             Email.sendKeys("cunami@mailinator.com"); //Send Email
             WebElement Tel = driver.findElement(By.xpath("//input[@name='user[tel]']")); //Web element Phone find
-            Tel.sendKeys("20000000"); //Send name
+            Tel.sendKeys("28452330"); //Send name
             System.out.println("Credentials have been input");
 
             WebElement Cname = driver.findElement(By.xpath("//*[@id=\"checkout_legal_form\"]/div[1]/input")); //Web element Name find
@@ -98,7 +98,7 @@ public class LAB_LEAGAL {
             Select DropCountryPhone = new Select(driver.findElement(By.xpath("//*[@id=\"dpd_locker\"]/div[3]/div/div[1]/div/div/select"))); //Search index
             DropCountryPhone.selectByVisibleText("LV +371"); //LV index
             WebElement LockerTel = driver.findElement(By.xpath("//input[@id='dpd_locker_phone']")); //Serch locker number
-            LockerTel.sendKeys("20000000"); // locker tel
+            LockerTel.sendKeys("28452330"); // locker tel
 
             driver.findElement(By.xpath("//*[@id=\"dpd_locker\"]/div[4]/div/div/span/span[1]/span")).click(); // select dpd locker
             WebElement LockerInput = driver.findElement(By.cssSelector(".select2-search__field")); // find locker input
@@ -108,27 +108,47 @@ public class LAB_LEAGAL {
             Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]")); // Look for checkbox
-            JavascriptExecutor js =(JavascriptExecutor)driver;
-            js.executeScript("arguments[0].click();", element); // click check box
-            System.out.println("Terms Accepted");
-            driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
-            System.out.println("Purchase created");
-
             Thread.sleep(2000);
-            String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
-            boolean result = page_url.contains(Substring);
-            System.out.println(result);
-            if (result)
+//
+            WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
+            String Delivery = GetDelivery.getText();
+            System.out.println(Delivery);
+
+            String NotClick = "DPD Pickup point";
+            boolean DeliverMethod = Delivery.contains(NotClick);
+            System.out.println(DeliverMethod);
+            if (DeliverMethod)
             {
-                Resulting = "passed";
+                WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
+                JavascriptExecutor js =(JavascriptExecutor)driver;
+                js.executeScript("arguments[0].click();", element);
+                System.out.println("Terms Accepted");
+                driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
+                System.out.println("Purchase created");
+
+                Thread.sleep(2000);
+                String page_url = driver.getCurrentUrl();
+                System.out.println(page_url);
+
+                String Substring = "/popup/pay";
+                boolean result = page_url.contains(Substring);
+                System.out.println(result);
+                if (result)
+                {
+                    Resulting = "passed";
+                }
+                else
+                {
+                    Resulting = "failed";
+                }
+                System.out.println(Resulting);
             }
             else
             {
                 Resulting = "failed";
+                System.out.println("Dellivery wasnt DPD");
+
             }
-            System.out.println(Resulting);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
