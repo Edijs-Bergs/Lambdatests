@@ -131,7 +131,7 @@ public class LAB_UNREG_IN_STORE {
             else
             {
                 Resulting = "failed";
-                System.out.println("Dellivery wasnt DPD");
+                System.out.println("Wasnt  pickup in store");
 
             }
 

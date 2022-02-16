@@ -27,7 +27,7 @@ public class LAB_LEAGAL_IN_STORE {
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "LAB_FINISHED");
-        capabilities.setCapability("name", "LAB_LEAGAL_IN_SORE");
+        capabilities.setCapability("name", "LAB_LEAGAL_IN_STORE");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
         capabilities.setCapability("version","94.0");
@@ -145,7 +145,7 @@ public class LAB_LEAGAL_IN_STORE {
             else
             {
                 Resulting = "failed";
-                System.out.println("Dellivery wasnt DPD");
+                System.out.println("Wasnt  pickup in store");
 
             }
 

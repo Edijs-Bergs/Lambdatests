@@ -104,29 +104,47 @@ public class LAB_REG_LEAGAL_IN_STORE {
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
             Thread.sleep(2000);
-//            driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div/label")).click(); // Accept terms
-            WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
-            JavascriptExecutor js =(JavascriptExecutor)driver;
-            js.executeScript("arguments[0].click();", element);
-            System.out.println("Terms Accepted");
-            driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
-            System.out.println("Purchase created");
-
             Thread.sleep(2000);
-            String page_url = driver.getCurrentUrl();
-            String Substring = "labrains.eu/en/cart-done";
-            boolean result = page_url.contains(Substring);
-            System.out.println(result);
-            if (result)
+//
+            WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
+            String Delivery = GetDelivery.getText();
+            System.out.println(Delivery);
+
+            String NotClick = "At Labrains office";
+            boolean DeliverMethod = Delivery.contains(NotClick);
+            System.out.println(DeliverMethod);
+            if (DeliverMethod)
             {
-                Resulting = "passed";
+                WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
+                JavascriptExecutor js =(JavascriptExecutor)driver;
+                js.executeScript("arguments[0].click();", element);
+                System.out.println("Terms Accepted");
+                driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
+                System.out.println("Purchase created");
+
+                Thread.sleep(2000);
+                String page_url = driver.getCurrentUrl();
+                System.out.println(page_url);
+
+                String Substring = "labrains.eu/en/cart-done";
+                boolean result = page_url.contains(Substring);
+                System.out.println(result);
+                if (result)
+                {
+                    Resulting = "passed";
+                }
+                else
+                {
+                    Resulting = "failed";
+                }
+                System.out.println(Resulting);
             }
             else
             {
                 Resulting = "failed";
-            }
-            System.out.println(Resulting);
+                System.out.println("Wasnt  pickup in store");
 
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
