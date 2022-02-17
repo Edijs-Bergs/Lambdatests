@@ -93,7 +93,7 @@ public class LAB_UNREG_IN_STORE {
 //            Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 //
             WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
             String Delivery = GetDelivery.getText();
