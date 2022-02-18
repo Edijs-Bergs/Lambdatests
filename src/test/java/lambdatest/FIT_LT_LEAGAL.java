@@ -110,7 +110,8 @@ public class FIT_LT_LEAGAL {
                 System.out.println("added to cart");
             }
 
-            driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.lt/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //Go to cart
+            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); // Unregistered
             driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[1]/div[2]/label")).click(); //Leagal person

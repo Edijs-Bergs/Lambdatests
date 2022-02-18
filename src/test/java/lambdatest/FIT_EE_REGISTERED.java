@@ -110,7 +110,8 @@ public class FIT_EE_REGISTERED {
                 System.out.println("added to cart");
             }
 
-            driver.findElement(By.cssSelector(".menu-tablet-desktop > .menu__item--cart .menu__icon")).click(); //Go to cart
+            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.ee/checkout')]")).click(); //to checkout
 
             WebElement Log_email = driver.findElement(By.xpath("//input[@id='email']")); // find email
@@ -119,7 +120,8 @@ public class FIT_EE_REGISTERED {
             Log_Pass.sendKeys("Maskavas127"); //send keys
 
             driver.findElement(By.xpath("//form[@id='login-form']/button")).click(); // login
-            driver.findElement(By.cssSelector(".menu-tablet-desktop > .menu__item--cart .menu__icon")).click(); //Go to cart
+            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.ee/checkout')]")).click(); //to checkout
 
             driver.findElement(By.xpath("//div[2]/label")).click(); //Select paysera

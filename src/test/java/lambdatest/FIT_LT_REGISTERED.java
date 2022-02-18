@@ -109,7 +109,8 @@ public class FIT_LT_REGISTERED {
                 System.out.println("added to cart");
             }
 
-            driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.lt/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //Go to cart
+            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout
 
             WebElement Log_email = driver.findElement(By.xpath("//input[@id='email']")); // find email
@@ -118,7 +119,8 @@ public class FIT_LT_REGISTERED {
             Log_Pass.sendKeys("Maskavas127"); //send keys
 
             driver.findElement(By.xpath("//form[@id='login-form']/button")).click(); // login
-            driver.findElement(By.xpath("//img[contains(@src,'https://fitstore.lt/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //Go to cart
+            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout
 
             driver.findElement(By.xpath("//div[2]/label")).click(); //Select paysera

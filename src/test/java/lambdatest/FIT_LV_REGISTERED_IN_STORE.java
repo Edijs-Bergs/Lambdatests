@@ -107,7 +107,8 @@ public class FIT_LV_REGISTERED_IN_STORE {
                 System.out.println("added to cart");
             }
 
-            driver.findElement(By.xpath("//img[contains(@src,'https://fitnesaveikals.lv/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //to cart
+            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(text(),'Noformēt pasūtījumu >')]")).click(); //Submit order
 
             WebElement Log_email = driver.findElement(By.xpath("//input[@id='email']")); // find email
@@ -116,7 +117,8 @@ public class FIT_LV_REGISTERED_IN_STORE {
             Log_Pass.sendKeys("Maskavas127"); //send keys
 
             driver.findElement(By.xpath("//form[@id='login-form']/button")).click(); // login
-            driver.findElement(By.xpath("//img[contains(@src,'https://fitnesaveikals.lv/themes/fitnesaveikals/assets/img/cart.svg')]")).click(); //to cart
+            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(text(),'Noformēt pasūtījumu >')]")).click(); //Submit order
             driver.findElement(By.xpath("/html/body/div[1]/main/section[1]/div/div[2]/div/form/div[1]/div[1]/div[1]/div[4]/label")).click(); //Store pickup
             driver.findElement(By.xpath("//label[contains(.,'Fitnesaveikals.lv birojā')]")).click();
