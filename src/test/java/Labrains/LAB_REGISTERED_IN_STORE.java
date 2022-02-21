@@ -105,7 +105,7 @@ public class LAB_REGISTERED_IN_STORE {
 //            Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            Thread.sleep(5000);
+            Thread.sleep(20000);
 //            driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div/label")).click(); // Accept terms
             WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
             JavascriptExecutor js =(JavascriptExecutor)driver;
