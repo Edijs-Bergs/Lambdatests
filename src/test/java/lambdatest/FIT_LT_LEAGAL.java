@@ -83,7 +83,7 @@ public class FIT_LT_LEAGAL {
 
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
 
-            driver.findElement(By.xpath("//*[@id=\"filter\"]/div[5]/div/label")).click(); // filter stock
+            driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
             Thread.sleep(7000); //pause
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
