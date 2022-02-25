@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -104,7 +105,7 @@ public class LAB_REG_LEAGAL {
             Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            Thread.sleep(20000);
+            WebDriverWait wait = new WebDriverWait(driver,20);
 //            driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div/label")).click(); // Accept terms
             WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
             JavascriptExecutor js =(JavascriptExecutor)driver;

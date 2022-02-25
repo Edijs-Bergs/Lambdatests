@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -93,7 +94,7 @@ public class LAB_UNREG {
             Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            Thread.sleep(20000);
+            WebDriverWait wait = new WebDriverWait(driver,20);
 //
             WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
             String Delivery = GetDelivery.getText();

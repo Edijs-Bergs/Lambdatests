@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
@@ -23,6 +24,7 @@ public class LAB_LEAGAL_IN_STORE {
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
     String Resulting = "failed";
 
+
     @BeforeTest
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -32,7 +34,7 @@ public class LAB_LEAGAL_IN_STORE {
         capabilities.setCapability("browserName", "Chrome");
         capabilities.setCapability("version","94.0");
         capabilities.setCapability("resolution","1920x1080");
-        capabilities.setCapability("selenium_version","3.13.0");
+        capabilities.setCapability("selenium_version","3.141.59");
         capabilities.setCapability("console",true);
         capabilities.setCapability("network",true);
         capabilities.setCapability("visual",true);
@@ -107,7 +109,7 @@ public class LAB_LEAGAL_IN_STORE {
 //            Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            Thread.sleep(25000);
+            WebDriverWait wait = new WebDriverWait(driver,20);
 //
             WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
             String Delivery = GetDelivery.getText();
