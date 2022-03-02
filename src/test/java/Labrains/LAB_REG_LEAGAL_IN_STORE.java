@@ -104,7 +104,7 @@ public class LAB_REG_LEAGAL_IN_STORE {
 //            Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            WebDriverWait wait = new WebDriverWait(driver,30);
+            WebDriverWait wait = new WebDriverWait(driver,40);
 //
             WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
             String Delivery = GetDelivery.getText();

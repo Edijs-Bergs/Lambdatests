@@ -92,7 +92,7 @@ public class LAB_REGISTERED_IN_STORE {
             System.out.println("Recive Info selected");
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            WebDriverWait wait = new WebDriverWait(driver,30);
+            WebDriverWait wait = new WebDriverWait(driver,40);
 //
             WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
             String Delivery = GetDelivery.getText();

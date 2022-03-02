@@ -107,7 +107,7 @@ public class LAB_REGISTERED {
 
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            WebDriverWait wait = new WebDriverWait(driver,30);
+            WebDriverWait wait = new WebDriverWait(driver,40);
             WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
             JavascriptExecutor js =(JavascriptExecutor)driver;
             js.executeScript("arguments[0].click();", element);
