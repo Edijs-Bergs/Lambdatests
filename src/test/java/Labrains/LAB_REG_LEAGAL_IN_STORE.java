@@ -91,6 +91,7 @@ public class LAB_REG_LEAGAL_IN_STORE {
             driver.findElement(By.xpath("//label[contains(.,'Payment upon pickup')]")).click(); // paysera
             driver.findElement(By.xpath("//*[@id=\"delivery_free--wrapper\"]/label")).click(); // dpd locker
             System.out.println("Recive Info selected");
+            Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
             WebDriverWait wait = new WebDriverWait(driver,40);
