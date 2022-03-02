@@ -90,44 +90,49 @@ public class LAB_REGISTERED_IN_STORE {
             driver.findElement(By.xpath("//label[contains(.,'Payment upon pickup')]")).click(); // paysera
             driver.findElement(By.xpath("//*[@id=\"delivery_free--wrapper\"]/label")).click(); // dpd locker
             System.out.println("Recive Info selected");
-//
-//            Select DropCountryLocker = new Select(driver.findElement(By.xpath("//*[@id=\"dpd_lockers_country\"]")));// locker country
-//            DropCountryLocker.selectByVisibleText("Latvia"); // Option latvia
-//
-//            WebElement LockerTel = driver.findElement(By.xpath("//input[@id='dpd_locker_phone']")); //Serch locker number
-//            LockerTel.sendKeys("28452330"); //
-//
-//            driver.findElement(By.xpath("//div[@id='dpd_locker']/div[4]/div/div/span/span/span/span[2]")).click(); // select dpd locker
-//
-//            WebElement LockerInput = driver.findElement(By.xpath("/html/body/span/span/span[1]/input")); // find locker input
-//            LockerInput.sendKeys("Rīga"); //input keys to search
-//            Thread.sleep(5000);
-//            driver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.RETURN); // hit enter key
-//            Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            WebDriverWait wait = new WebDriverWait(driver,20);
-//            driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div/label")).click(); // Accept terms
-            WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
-            JavascriptExecutor js =(JavascriptExecutor)driver;
-            js.executeScript("arguments[0].click();", element);
-            System.out.println("Terms Accepted");
-            driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
-            System.out.println("Purchase created");
-            String page_url = driver.getCurrentUrl();
-            String Substring = "labrains.eu/en/cart-done";
-            boolean result = page_url.contains(Substring);
-            System.out.println(result);
-            if (result)
+            WebDriverWait wait = new WebDriverWait(driver,30);
+//
+            WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
+            String Delivery = GetDelivery.getText();
+            System.out.println(Delivery);
+
+            String NotClick = "At Labrains office";
+            boolean DeliverMethod = Delivery.contains(NotClick);
+            System.out.println(DeliverMethod);
+            if (DeliverMethod)
             {
-                Resulting = "passed";
+                WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
+                JavascriptExecutor js =(JavascriptExecutor)driver;
+                js.executeScript("arguments[0].click();", element);
+                System.out.println("Terms Accepted");
+                driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
+                System.out.println("Purchase created");
+
+                Thread.sleep(2000);
+                String page_url = driver.getCurrentUrl();
+                System.out.println(page_url);
+
+                String Substring = "labrains.eu/en/cart-done";
+                boolean result = page_url.contains(Substring);
+                System.out.println(result);
+                if (result)
+                {
+                    Resulting = "passed";
+                }
+                else
+                {
+                    Resulting = "failed";
+                }
+                System.out.println(Resulting);
             }
             else
             {
                 Resulting = "failed";
-            }
-            System.out.println(Resulting);
+                System.out.println("Wasnt  pickup in store");
 
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
