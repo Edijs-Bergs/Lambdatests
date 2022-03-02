@@ -34,7 +34,7 @@ public class LAB_REG_LEAGAL {
         capabilities.setCapability("browserName", "Chrome");
         capabilities.setCapability("version","94.0");
         capabilities.setCapability("resolution","1920x1080");
-        capabilities.setCapability("selenium_version","3.13.0");
+        capabilities.setCapability("selenium_version","4.0.0");
         capabilities.setCapability("console",true);
         capabilities.setCapability("network",true);
         capabilities.setCapability("visual",true);
