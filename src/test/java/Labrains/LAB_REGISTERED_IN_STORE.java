@@ -115,7 +115,7 @@ public class LAB_REGISTERED_IN_STORE {
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
             System.out.println("Purchase created");
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,30);
             String page_url = driver.getCurrentUrl();
             String Substring = "labrains.eu/en/cart-done";
             boolean result = page_url.contains(Substring);
