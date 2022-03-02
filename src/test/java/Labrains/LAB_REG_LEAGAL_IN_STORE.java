@@ -91,17 +91,6 @@ public class LAB_REG_LEAGAL_IN_STORE {
             driver.findElement(By.xpath("//label[contains(.,'Payment upon pickup')]")).click(); // paysera
             driver.findElement(By.xpath("//*[@id=\"delivery_free--wrapper\"]/label")).click(); // dpd locker
             System.out.println("Recive Info selected");
-//            Select DropCountryLocker = new Select(driver.findElement(By.xpath("//*[@id=\"dpd_lockers_country\"]")));// locker country
-//            DropCountryLocker.selectByVisibleText("Latvia"); // Option latvia
-//            WebElement LockerTel = driver.findElement(By.xpath("//input[@id='dpd_locker_phone']")); //Serch locker number
-//            LockerTel.sendKeys("28452330"); //
-//
-//            driver.findElement(By.xpath("//div[@id='dpd_locker']/div[4]/div/div/span/span/span/span[2]")).click(); // select dpd locker
-//            WebElement LockerInput = driver.findElement(By.xpath("/html/body/span/span/span[1]/input")); // find locker input
-//            LockerInput.sendKeys("Rīga"); //input keys to search
-//            Thread.sleep(5000);
-//            driver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.RETURN); // hit enter key
-//            Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
             WebDriverWait wait = new WebDriverWait(driver,40);

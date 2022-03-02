@@ -136,47 +136,7 @@ public class LAB_UNREG {
 
             }
 
-//            Thread.sleep(2000);
 //
-//            WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
-//            String Delivery = GetDelivery.getText();
-//            System.out.println(Delivery);
-//
-//            String NotClick = "DPD Pickup point";
-//            boolean DeliverMethod = Delivery.contains(NotClick);
-//            System.out.println(DeliverMethod);
-//            if (DeliverMethod)
-//            {
-//                WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
-//                JavascriptExecutor js =(JavascriptExecutor)driver;
-//                js.executeScript("arguments[0].click();", element);
-//                System.out.println("Terms Accepted");
-//                driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
-//                System.out.println("Purchase created");
-//
-//                Thread.sleep(2000);
-//                String page_url = driver.getCurrentUrl();
-//                System.out.println(page_url);
-//
-//                String Substring = "/popup/pay";
-//                boolean result = page_url.contains(Substring);
-//                System.out.println(result);
-//                if (result)
-//                {
-//                   Resulting = "passed";
-//               }
-//                else
-//               {
-//                  Resulting = "failed";
-//               }
-//                System.out.println(Resulting);
-//            }
-//            else
-//            {
-//                Resulting = "failed";
-//                System.out.println("Dellivery wasnt DPD");
-//
-//            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
