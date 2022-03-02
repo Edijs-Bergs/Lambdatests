@@ -13,6 +13,25 @@ pipelines:
         caches:
           - maven
         script:
+          - mvn clean install -U
+          - mvn clean install -DskipTests
+          - mvn -Dtest=FIT_LV_REGISTERED test
+          - mvn -Dtest=FIT_LV_REGISTERED_IN_STORE test
+          - mvn -Dtest=FIT_LV_UNREGISTERED test
+          - mvn -Dtest=FIT_LV_UNREGISTERED_IN_STORE test
+          - mvn -Dtest=FIT_LV_LEAGAL test
+          - mvn -Dtest=FIT_LV_LEAGAL_IN_STORE test
+          - mvn -Dtest=FIT_LT_REGISTERED test
+          - mvn -Dtest=FIT_LT_UNREGISTERED test
+          - mvn -Dtest=FIT_LT_LEAGAL test
+          - mvn -Dtest=FIT_EE_REGISTERED test
+          - mvn -Dtest=FIT_EE_UNREGISTERED test
+          - mvn -Dtest=FIT_EE_LEAGAL test
+          - mvn -Dtest=FIT_FI_REGISTERED test
+          - mvn -Dtest=FIT_FI_UNREGISTERED test
+          - mvn -Dtest=FIT_FI_LEAGAL test
+          - mvn -Dtest=PAK_STICKER_BUY_REG test
+          - mvn -Dtest=PAK_STICKER_BUY_NOT_REG test
           - mvn -Dtest=LAB_UNREG test
           - mvn -Dtest=LAB_LEAGAL test
           - mvn -Dtest=LAB_REGISTERED test
@@ -21,25 +40,6 @@ pipelines:
           - mvn -Dtest=LAB_LEAGAL_IN_STORE test
           - mvn -Dtest=LAB_REGISTERED_IN_STORE test
           - mvn -Dtest=LAB_REG_LEAGAL_IN_STORE test
-#          - mvn clean install -U
-#          - mvn clean install -DskipTests
-#          - mvn -Dtest=FIT_LV_REGISTERED test
-#          - mvn -Dtest=FIT_LV_REGISTERED_IN_STORE test
-#          - mvn -Dtest=FIT_LV_UNREGISTERED test
-#          - mvn -Dtest=FIT_LV_UNREGISTERED_IN_STORE test
-#          - mvn -Dtest=FIT_LV_LEAGAL test
-#          - mvn -Dtest=FIT_LV_LEAGAL_IN_STORE test
-#          - mvn -Dtest=FIT_LT_REGISTERED test
-#          - mvn -Dtest=FIT_LT_UNREGISTERED test
-#          - mvn -Dtest=FIT_LT_LEAGAL test
-#          - mvn -Dtest=FIT_EE_REGISTERED test
-#          - mvn -Dtest=FIT_EE_UNREGISTERED test
-#          - mvn -Dtest=FIT_EE_LEAGAL test
-#          - mvn -Dtest=FIT_FI_REGISTERED test
-#          - mvn -Dtest=FIT_FI_UNREGISTERED test
-#          - mvn -Dtest=FIT_FI_LEAGAL test
-#          - mvn -Dtest=PAK_STICKER_BUY_REG test
-#          - mvn -Dtest=PAK_STICKER_BUY_NOT_REG test
 
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
