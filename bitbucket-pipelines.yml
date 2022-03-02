@@ -13,6 +13,14 @@ pipelines:
         caches:
           - maven
         script:
+          - mvn -Dtest=LAB_UNREG test
+          - mvn -Dtest=LAB_LEAGAL test
+          - mvn -Dtest=LAB_REGISTERED test
+          - mvn -Dtest=LAB_REG_LEAGAL test
+          - mvn -Dtest=LAB_UNREG_IN_STORE test
+          - mvn -Dtest=LAB_LEAGAL_IN_STORE test
+          - mvn -Dtest=LAB_REGISTERED_IN_STORE test
+          - mvn -Dtest=LAB_REG_LEAGAL_IN_STORE test
           - mvn clean install -U
           - mvn clean install -DskipTests
           - mvn -Dtest=FIT_LV_REGISTERED test
@@ -32,14 +40,7 @@ pipelines:
           - mvn -Dtest=FIT_FI_LEAGAL test
           - mvn -Dtest=PAK_STICKER_BUY_REG test
           - mvn -Dtest=PAK_STICKER_BUY_NOT_REG test
-          - mvn -Dtest=LAB_UNREG test
-          - mvn -Dtest=LAB_LEAGAL test
-          - mvn -Dtest=LAB_REGISTERED test
-          - mvn -Dtest=LAB_REG_LEAGAL test
-          - mvn -Dtest=LAB_UNREG_IN_STORE test
-          - mvn -Dtest=LAB_LEAGAL_IN_STORE test
-          - mvn -Dtest=LAB_REGISTERED_IN_STORE test
-          - mvn -Dtest=LAB_REG_LEAGAL_IN_STORE test
+
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
           - pipe: atlassian/checkstyle-report:0.2.0
