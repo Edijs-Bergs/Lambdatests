@@ -63,7 +63,7 @@ public class LAB_REGISTERED_IN_STORE {
             driver.findElement(By.xpath("//*[@id=\"cookiesAlert\"]/div/div/div[2]/button[1]")).click(); //Accept cookies
             Thread.sleep(2000);
 
-            driver.findElement(By.xpath("//*[@id=\"header\"]/nav/ul[2]/li[2]/a")).click();
+            driver.findElement(By.xpath("//a[contains(text(),'Account')]")).click();
             Thread.sleep(2000);
             WebElement Email = driver.findElement(By.xpath("//*[@id=\"login_email\"]")); //Web element Email find
             Thread.sleep(2000);
@@ -84,13 +84,13 @@ public class LAB_REGISTERED_IN_STORE {
             driver.findElement(By.cssSelector(".radio:nth-child(3) > .radio__label")).click(); //first radio
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); //plus button
             driver.findElement(By.xpath("(//button[@type='submit'])[3]")).click(); //Add to cart
-            driver.findElement(By.xpath("//a[contains(@href, 'https://labrains.eu/en/cart')]")).click(); //Open cart
+            driver.findElement(By.xpath("//a[contains(text(),'Cart')]")).click(); //Open cart
             driver.findElement(By.xpath("//div[@id='cartTable']/div[4]/a[2]")).click(); //BTN costomize
 
             driver.findElement(By.xpath("//label[contains(.,'Payment upon pickup')]")).click(); // paysera
             driver.findElement(By.xpath("//*[@id=\"delivery_free--wrapper\"]/label")).click(); // dpd locker
             System.out.println("Recive Info selected");
-            Thread.sleep( 2000);
+            Thread.sleep( 2000); // right at this specific point
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
             WebDriverWait wait = new WebDriverWait(driver,40);

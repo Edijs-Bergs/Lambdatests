@@ -64,7 +64,7 @@ public class LAB_REGISTERED {
             driver.findElement(By.xpath("//*[@id=\"cookiesAlert\"]/div/div/div[2]/button[1]")).click(); //Accept cookies
             Thread.sleep(2000);
 
-            driver.findElement(By.xpath("//*[@id=\"header\"]/nav/ul[2]/li[2]/a")).click();
+            driver.findElement(By.xpath("//a[contains(text(),'Account')]")).click();
             Thread.sleep(2000);
             WebElement Email = driver.findElement(By.xpath("//*[@id=\"login_email\"]")); //Web element Email find
             Thread.sleep(2000);
@@ -85,7 +85,7 @@ public class LAB_REGISTERED {
             driver.findElement(By.cssSelector(".radio:nth-child(3) > .radio__label")).click(); //first radio
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); //plus button
             driver.findElement(By.xpath("(//button[@type='submit'])[3]")).click(); //Add to cart
-            driver.findElement(By.xpath("//a[contains(@href, 'https://labrains.eu/en/cart')]")).click(); //Open cart
+            driver.findElement(By.xpath("//a[contains(text(),'Cart')]")).click(); //Open cart
             driver.findElement(By.xpath("//div[@id='cartTable']/div[4]/a[2]")).click(); //BTN costomize
 
             driver.findElement(By.xpath("//label[contains(.,'Pay with your local banks. Powered by PaySera')]")).click(); // paysera
@@ -104,31 +104,50 @@ public class LAB_REGISTERED {
             LockerInput.sendKeys("Rīga"); //input keys to search
             Thread.sleep(5000);
             driver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.RETURN);
-            Thread.sleep( 2000);
+            WebDriverWait wait2 = new WebDriverWait(driver,40);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
             WebDriverWait wait = new WebDriverWait(driver,40);
-            WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
-            JavascriptExecutor js =(JavascriptExecutor)driver;
-            js.executeScript("arguments[0].click();", element);
-            System.out.println("Terms Accepted");
-            driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
-            System.out.println("Purchase created");
+//
+            WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
+            String Delivery = GetDelivery.getText();
+            System.out.println(Delivery);
 
-            Thread.sleep(2000);
-            String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
-            boolean result = page_url.contains(Substring);
-            System.out.println(result);
-            if (result)
+            String NotClick = "At Labrains office";
+            boolean DeliverMethod = Delivery.contains(NotClick);
+            System.out.println(DeliverMethod);
+            if (DeliverMethod)
             {
-                Resulting = "passed";
+                WebElement element = driver.findElement(By.xpath("//*[@id=\"terms\"]"));
+                JavascriptExecutor js =(JavascriptExecutor)driver;
+                js.executeScript("arguments[0].click();", element);
+                System.out.println("Terms Accepted");
+                driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
+                System.out.println("Purchase created");
+
+                Thread.sleep(2000);
+                String page_url = driver.getCurrentUrl();
+                System.out.println(page_url);
+
+                String Substring = "labrains.eu/en/cart-done";
+                boolean result = page_url.contains(Substring);
+                System.out.println(result);
+                if (result)
+                {
+                    Resulting = "passed";
+                }
+                else
+                {
+                    Resulting = "failed";
+                }
+                System.out.println(Resulting);
             }
             else
             {
                 Resulting = "failed";
+                System.out.println("Wasnt  pickup in store");
+
             }
-            System.out.println(Resulting);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

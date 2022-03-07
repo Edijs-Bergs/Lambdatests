@@ -66,7 +66,7 @@ public class LAB_LEAGAL_IN_STORE {
             driver.findElement(By.cssSelector(".radio:nth-child(3) > .radio__label")).click(); //first radio
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); //plus button
             driver.findElement(By.xpath("(//button[@type='submit'])[3]")).click(); //Add to cart
-            driver.findElement(By.xpath("//a[contains(@href, 'https://labrains.eu/en/cart')]")).click(); //Open cart
+            driver.findElement(By.xpath("//a[contains(text(),'Cart')]")).click(); //Open cart
             driver.findElement(By.xpath("//div[@id='cartTable']/div[4]/a[2]")).click(); //BTN costomize
             driver.findElement(By.xpath("/html/body/div[1]/section/div/div[2]/form/div[1]/div[1]/div[1]/div[2]/div/div/label")).click(); //leagal person
             WebElement Name = driver.findElement(By.xpath("//input[@name='user[name]']")); //Web element Name find
