@@ -127,7 +127,7 @@ public class FIT_LV_REGISTERED {
             driver.findElement(By.xpath("//div[5]/div/div/div/label/p")).click(); //Terms
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click(); //Submit
 
-            wait = new WebDriverWait(driver,20); //pause
+            Thread.sleep(2000);
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";

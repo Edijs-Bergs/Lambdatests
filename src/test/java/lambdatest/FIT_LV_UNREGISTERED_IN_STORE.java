@@ -127,7 +127,7 @@ public class FIT_LV_UNREGISTERED_IN_STORE {
             driver.findElement(By.cssSelector(".row:nth-child(13) .checkbox__label")).click(); //terms accept
             driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click(); //Submit
 
-            wait = new WebDriverWait(driver,20); //pause
+            Thread.sleep(2000);
             Resulting = "passed";
 
             String page_url = driver.getCurrentUrl();

@@ -180,7 +180,7 @@ public class FIT_EE_LEAGAL {
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
-            wait = new WebDriverWait(driver,20); //pause
+            Thread.sleep(2000);
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";
