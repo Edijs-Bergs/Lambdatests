@@ -59,31 +59,31 @@ public class LAB_REG_LEAGAL {
 
             driver.manage().window().maximize();
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,2);
 
             driver.findElement(By.xpath("//*[@id=\"cookiesAlert\"]/div/div/div[2]/button[1]")).click(); //Accept cookies
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
 
             driver.findElement(By.xpath("//a[contains(text(),'Account')]")).click();
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
             WebElement Email = driver.findElement(By.xpath("//*[@id=\"login_email\"]")); //Web element Email find
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
             Email.sendKeys("cunamileagal@mailinator.com"); //Send Email
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
             WebElement PSW = driver.findElement(By.xpath("//*[@id=\"login_pswd\"]")); //Web element Email find
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
             PSW.sendKeys("Maskavas127"); //Send Email
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
             driver.findElement(By.xpath("//*[@id=\"login-form\"]/button")).click();
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
 
             driver.findElement(By.xpath("//a[contains(@href, 'https://labrains.eu/en/category/1/shop')]")).click(); // click shop in nav bar
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .btn > span")).click(); // Click on 1st product
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);
             driver.findElement(By.cssSelector(".radio:nth-child(3) > .radio__label")).click(); //first radio
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,2);;
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); //plus button
             driver.findElement(By.xpath("(//button[@type='submit'])[3]")).click(); //Add to cart
             driver.findElement(By.xpath("//a[contains(text(),'Cart')]")).click(); //Open cart
@@ -105,7 +105,7 @@ public class LAB_REG_LEAGAL {
             Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            WebDriverWait wait = new WebDriverWait(driver,40);
+            wait = new WebDriverWait(driver,40);
 //            driver.findElement(By.xpath("/html/body/div[1]/section[1]/div/div[2]/form/div[6]/div/div/label")).click(); // Accept terms
             WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
             String Delivery = GetDelivery.getText();
@@ -123,7 +123,7 @@ public class LAB_REG_LEAGAL {
                 driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
                 System.out.println("Purchase created");
 
-                Thread.sleep(2000);
+                wait = new WebDriverWait(driver,2);
                 String page_url = driver.getCurrentUrl();
                 System.out.println(page_url);
 

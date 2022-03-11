@@ -21,15 +21,19 @@ pipelines:
           - mvn -Dtest=FIT_LV_UNREGISTERED_IN_STORE test
           - mvn -Dtest=FIT_LV_LEAGAL test
           - mvn -Dtest=FIT_LV_LEAGAL_IN_STORE test
+          - mvn -Dtest=FIT_LV_SERCH_TEST test
           - mvn -Dtest=FIT_LT_REGISTERED test
           - mvn -Dtest=FIT_LT_UNREGISTERED test
           - mvn -Dtest=FIT_LT_LEAGAL test
+          - mvn -Dtest=FIT_LT_SERCH_TEST test
           - mvn -Dtest=FIT_EE_REGISTERED test
           - mvn -Dtest=FIT_EE_UNREGISTERED test
           - mvn -Dtest=FIT_EE_LEAGAL test
+          - mvn -Dtest=FIT_EE_SERCH_TEST test
           - mvn -Dtest=FIT_FI_REGISTERED test
           - mvn -Dtest=FIT_FI_UNREGISTERED test
           - mvn -Dtest=FIT_FI_LEAGAL test
+          - mvn -Dtest=FIT_FI_SERCH_TEST test
           - mvn -Dtest=PAK_STICKER_BUY_REG test
           - mvn -Dtest=PAK_STICKER_BUY_NOT_REG test
           - mvn -Dtest=LAB_UNREG test
@@ -40,6 +44,12 @@ pipelines:
           - mvn -Dtest=LAB_LEAGAL_IN_STORE test
           - mvn -Dtest=LAB_REGISTERED_IN_STORE test
           - mvn -Dtest=LAB_REG_LEAGAL_IN_STORE test
+          - mvn -Dtest=LAB_SEARCH_TEST_EN test
+          - mvn -Dtest=LAB_SEARCH_TEST_LV test
+          - mvn -Dtest=LAB_SEARCH_TEST_RU test
+          - mvn -Dtest=LAB_CATEGORY_TEST_EN test
+          - mvn -Dtest=LAB_CATEGORY_TEST_LV test
+          - mvn -Dtest=LAB_CATEGORY_TEST_RU test
 
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.

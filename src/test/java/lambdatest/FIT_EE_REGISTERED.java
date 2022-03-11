@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -57,7 +58,7 @@ public class FIT_EE_REGISTERED {
 
             driver.manage().window().maximize();
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,2); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)
@@ -84,7 +85,7 @@ public class FIT_EE_REGISTERED {
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            Thread.sleep(7000); //pause
+            wait = new WebDriverWait(driver,7); //pause
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
 
@@ -129,7 +130,7 @@ public class FIT_EE_REGISTERED {
 
             Select dropdownCountry = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_country_3']"))); //Select dropdows
             dropdownCountry.selectByVisibleText("Estonia"); //Select lithuania
-            Thread.sleep( 2000);
+            wait = new WebDriverWait(driver,2); //pause
 
             WebElement Zip_code = driver.findElement(By.xpath("//input[@id='shipping_zip_3']")); //Find zip
             Zip_code.sendKeys("75704"); //input zip
@@ -139,18 +140,18 @@ public class FIT_EE_REGISTERED {
 
             Select dropcounty = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_3']"))); //Select dropdown
             dropcounty.selectByVisibleText("Valga County"); //County
-            Thread.sleep( 2000);
+            wait = new WebDriverWait(driver,2); //pause
 
             Select dropParish = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_area_3']"))); //Select dropdown
             dropParish.selectByVisibleText("Valga Parish"); //parish
-            Thread.sleep( 2000);
+            wait = new WebDriverWait(driver,2); //pause
 
             WebElement Street = driver.findElement(By.xpath("//input[@id='shipping_address_3']")); //Street
             Street.sendKeys("Ringuvos"); //input street
 
             Select dropdowntel2 = new Select(driver.findElement(By.xpath("//select[@name='shipping[courier][phone_country]']"))); //Select dropdown
             dropdowntel2.selectByVisibleText("LV +371"); //Select LV index
-            Thread.sleep( 2000);
+            wait = new WebDriverWait(driver,2); //pause
 
             WebElement phone2 = driver.findElement(By.xpath("//input[@id='shipping_phone_3']")); //Search phone
             phone2.sendKeys("20000000");
@@ -159,7 +160,7 @@ public class FIT_EE_REGISTERED {
 
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click();  //submit
 
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,20); //pause
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";

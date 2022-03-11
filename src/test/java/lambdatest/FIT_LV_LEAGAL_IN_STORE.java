@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -54,7 +55,7 @@ public class FIT_LV_LEAGAL_IN_STORE {
             driver.get("https://fitnesaveikals.lv/");
             driver.manage().window().maximize();
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,2); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)
@@ -81,7 +82,7 @@ public class FIT_LV_LEAGAL_IN_STORE {
             driver.findElement(By.xpath("//*[@id=\"nav\"]/div/ul/div/li[1]/a")).click(); //Akcijas preces
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            Thread.sleep(7000); //pause
+            wait = new WebDriverWait(driver,7); //pause
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
 
@@ -141,7 +142,7 @@ public class FIT_LV_LEAGAL_IN_STORE {
             driver.findElement(By.cssSelector(".row:nth-child(13) .checkbox__label")).click(); //terms accept
             driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click(); //Submit
 
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,20); //pause
             String page_url = driver.getCurrentUrl();
             String Substring = "fitnesaveikals.lv/cart-done";
             boolean result = page_url.contains(Substring);

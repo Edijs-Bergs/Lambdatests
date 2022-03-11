@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -55,7 +56,7 @@ public class FIT_FI_UNREGISTERED {
             driver.get("https://fitstore.fi/");
             driver.manage().window().maximize();
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,2); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)
@@ -83,7 +84,7 @@ public class FIT_FI_UNREGISTERED {
             driver.findElement(By.xpath("//nav[@id='nav']/div/ul/li[6]/a")).click(); //Sports
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            Thread.sleep(7000);
+            wait = new WebDriverWait(driver,7); //pause
 
             driver.findElement(By.cssSelector(".col-xl-4:nth-child(2) .product__content a")).click(); //Bottle
 
@@ -122,7 +123,7 @@ public class FIT_FI_UNREGISTERED {
 
             WebElement orderEmail = driver.findElement(By.id("reg_email")); //search Email
             orderEmail.sendKeys("cunami@mailinator.com"); //Input email
-            Thread.sleep( 2000);
+            wait = new WebDriverWait(driver,2); //pause
 
             Select dropdowntel = new Select(driver.findElement(By.xpath("//select[@name='user[phone_country]']"))); //Select dropdows
             dropdowntel.selectByVisibleText("LV +371"); //Select LV index
@@ -137,7 +138,7 @@ public class FIT_FI_UNREGISTERED {
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,20); //pause
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";

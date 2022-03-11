@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -57,7 +58,7 @@ public class FIT_LT_LEAGAL {
 
             driver.manage().window().maximize();
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,2); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)
@@ -84,7 +85,7 @@ public class FIT_LT_LEAGAL {
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            Thread.sleep(7000); //pause
+            wait = new WebDriverWait(driver,7); //pause
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
 
@@ -127,7 +128,7 @@ public class FIT_LT_LEAGAL {
             RegNumber.sendKeys("40103996361"); //keys name
             WebElement TaxNumber = driver.findElement(By.id("reg_jur_tax_nr")); //search Tax Number
             TaxNumber.sendKeys("LV40103996361"); //keys name
-            Thread.sleep( 2000);
+            wait = new WebDriverWait(driver,2); //pause
             Select dropdownCountry1 = new Select(driver.findElement(By.xpath("//*[@id=\"reg_jur_country\"]"))); //Select Country
             dropdownCountry1.selectByVisibleText("Latvia"); //Select LV
             WebElement Town = driver.findElement(By.id("reg_jur_town")); //search Town
@@ -145,7 +146,7 @@ public class FIT_LT_LEAGAL {
 
             driver.findElement(By.xpath("//div[6]/div/div/div[2]/label")).click(); //Select paysera
             driver.findElement(By.xpath("(//div[@id='delivery_courier--wrapper']/label)[2]")).click(); //Delliver by courier
-            Thread.sleep( 2000);
+            wait = new WebDriverWait(driver,2); //pause
 
             Select dropdownCountry = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_country_2']"))); //Select dropdows
             dropdownCountry.selectByVisibleText("Lithuania"); //Select lithuania
@@ -156,7 +157,7 @@ public class FIT_LT_LEAGAL {
             City.sendKeys("Vilnus"); //input city
             WebElement Street = driver.findElement(By.xpath("//input[@id='shipping_address_2']")); //Street
             Street.sendKeys("Ringuvos"); //input street
-            Thread.sleep( 2000);
+            wait = new WebDriverWait(driver,2); //pause
             Select dropdowntel2 = new Select(driver.findElement(By.xpath("(//select[@name='shipping[courier][phone_country]'])[2]"))); //Select dropdown
             dropdowntel2.selectByVisibleText("LV +371"); //Select LV index
             WebElement phone2 = driver.findElement(By.xpath("//input[@id='shipping_phone_2']")); //Search phone
@@ -166,7 +167,7 @@ public class FIT_LT_LEAGAL {
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,20); //pause
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay/paywindow/";

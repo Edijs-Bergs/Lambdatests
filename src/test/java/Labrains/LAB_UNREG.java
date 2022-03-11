@@ -59,7 +59,7 @@ public class LAB_UNREG {
 
             driver.manage().window().maximize();
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,2);
             driver.findElement(By.xpath("//a[contains(@href, 'https://labrains.eu/en/category/1/shop')]")).click(); // click shop in nav bar
             driver.findElement(By.xpath("//*[@id=\"cookiesAlert\"]/div/div/div[2]/button[1]")).click(); //Accept cookies
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .btn > span")).click(); // Click on 1st product
@@ -94,7 +94,7 @@ public class LAB_UNREG {
             Thread.sleep( 2000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
-            WebDriverWait wait = new WebDriverWait(driver,40);
+            wait = new WebDriverWait(driver,40);
 //
             WebElement GetDelivery = driver.findElement(By.id("shipping_service_label"));
             String Delivery = GetDelivery.getText();
@@ -112,7 +112,7 @@ public class LAB_UNREG {
                 driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click();
                 System.out.println("Purchase created");
 
-                Thread.sleep(2000);
+                wait = new WebDriverWait(driver,2);
                 String page_url = driver.getCurrentUrl();
                 System.out.println(page_url);
 

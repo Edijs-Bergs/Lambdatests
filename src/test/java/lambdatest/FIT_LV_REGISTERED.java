@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -55,7 +56,7 @@ public class FIT_LV_REGISTERED {
 
             driver.manage().window().maximize(); //Max window
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,2); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)
@@ -82,7 +83,7 @@ public class FIT_LV_REGISTERED {
             driver.findElement(By.xpath("//header/nav/div/ul/div/li/a")).click(); //Akcijas preces
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            Thread.sleep(7000); //pause
+            wait = new WebDriverWait(driver,7); //pause
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
 
@@ -126,7 +127,7 @@ public class FIT_LV_REGISTERED {
             driver.findElement(By.xpath("//div[5]/div/div/div/label/p")).click(); //Terms
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click(); //Submit
 
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,20); //pause
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";

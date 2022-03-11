@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -55,7 +56,7 @@ public class FIT_FI_REGISTERED {
 
             driver.manage().window().maximize();
 
-            Thread.sleep(2000);
+            WebDriverWait wait = new WebDriverWait(driver,2); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)
@@ -82,7 +83,7 @@ public class FIT_FI_REGISTERED {
             driver.findElement(By.xpath("//nav[@id='nav']/div/ul/li[6]/a")).click(); //Sports
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            Thread.sleep(7000); //pause
+            wait = new WebDriverWait(driver,2); //pause
 
             driver.findElement(By.cssSelector(".col-xl-4:nth-child(1) .product__content a")).click(); //Bottle
 
@@ -130,7 +131,7 @@ public class FIT_FI_REGISTERED {
 
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click();  //submit
 
-            Thread.sleep(2000);
+            wait = new WebDriverWait(driver,20); //pause
 
             String page_url = driver.getCurrentUrl();
             String Substring = "popup/pay";
