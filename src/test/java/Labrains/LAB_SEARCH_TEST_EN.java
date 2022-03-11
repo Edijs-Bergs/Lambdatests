@@ -66,7 +66,7 @@ public class LAB_SEARCH_TEST_EN {
             String page_url = driver.getCurrentUrl(); //Get currennt url
             System.out.println(page_url); //print url
 
-            String Substring = "search_product_title=eco+bag"; //Comparison string
+            String Substring = "search_product_title=eco+Bag"; //Comparison string
             boolean result = page_url.contains(Substring); //Determine page
             System.out.println(result); //print value
             if (result)
@@ -81,7 +81,7 @@ public class LAB_SEARCH_TEST_EN {
                 if (Product_value)
                 {
                     System.out.println("Product found"); //print value
-                    Resulting = "Passed";
+                    Resulting = "passed";
                 }
                 else
                 {

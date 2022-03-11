@@ -22,7 +22,7 @@ public class FIT_LV_SERCH_TEST {
     String username = "artcunami";
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
     String Resulting = "failed";
-    String[] Products = {"Mad Max", "Elastiska josta", "Ironmax Pudele", "aerobikas hanetele", "Spiky Massage"};
+    String[] Products = {"Mad Max", "Elastiska josta", "Ironmax pudele", "aerobikas hanetele", "Spiky Massage"};
     char ch = '-';
 
     @BeforeTest
