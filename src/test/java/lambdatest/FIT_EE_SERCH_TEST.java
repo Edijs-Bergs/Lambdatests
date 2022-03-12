@@ -20,14 +20,14 @@ public class FIT_EE_SERCH_TEST {
     String username = "artcunami";
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
     String Resulting = "failed";
-    String[] Products = {"Mad Max", "ELASTIC STRAP", "Ironmax pudele", "Dumbbell", "Spiky Massage"};
+    String[] Products = {"MAD MAX", "ELASTIC STRAP", "Ironmax pudele", "Dumbbell", "Spiky Massage"};
     char ch = '-';
 
     @BeforeTest
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "Finished_FIT");
-        capabilities.setCapability("name", "FIT_LV_SERCH_TEST");
+        capabilities.setCapability("name", "FIT_EE_SERCH_TEST");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
         capabilities.setCapability("version","94.0");
@@ -94,7 +94,7 @@ public class FIT_EE_SERCH_TEST {
 
             wait = new WebDriverWait(driver,2); //pause
 
-            String page_url = driver.getCurrentUrl(); //Get currennt url
+            String page_url = driver.getCurrentUrl(); //Get currennt
             System.out.println(page_url); //print url
 
             String Substring = "search_product_title=".concat(S_Term); //Comparison string
