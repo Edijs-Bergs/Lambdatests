@@ -50,6 +50,8 @@ pipelines:
           - mvn -Dtest=LAB_CATEGORY_TEST_EN test
           - mvn -Dtest=LAB_CATEGORY_TEST_LV test
           - mvn -Dtest=LAB_CATEGORY_TEST_RU test
+          # Run monitor
+          - mvn -Dtest=API_Run_Monitor test
 
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.

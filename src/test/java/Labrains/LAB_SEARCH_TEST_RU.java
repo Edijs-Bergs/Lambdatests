@@ -81,7 +81,7 @@ public class LAB_SEARCH_TEST_RU {
                 if (Product_value)
                 {
                     System.out.println("Product found"); //print value
-                    Resulting = "Passed";
+                    Resulting = "passed";
                 }
                 else
                 {
