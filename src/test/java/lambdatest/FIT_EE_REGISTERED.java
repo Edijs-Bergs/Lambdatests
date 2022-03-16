@@ -143,7 +143,7 @@ public class FIT_EE_REGISTERED {
             wait = new WebDriverWait(driver,2); //pause
 
             Select dropParish = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_area_3']"))); //Select dropdown
-            dropParish.selectByVisibleText("Valga County"); //parish
+            dropParish.selectByVisibleText("Valga Parish"); //parish
             wait = new WebDriverWait(driver,2); //pause
 
             WebElement Street = driver.findElement(By.xpath("//input[@id='shipping_address_3']")); //Street
