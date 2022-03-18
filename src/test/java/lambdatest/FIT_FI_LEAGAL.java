@@ -33,11 +33,13 @@ public class FIT_FI_LEAGAL {
         capabilities.setCapability("version","94.0");
         capabilities.setCapability("resolution","1920x1080");
         capabilities.setCapability("selenium_version","3.13.0");
-        capabilities.setCapability("console",true);
+        capabilities.setCapability("terminal", true);
+
         capabilities.setCapability("network",true);
         capabilities.setCapability("visual",true);
         capabilities.setCapability("geoLocation","LV");
         capabilities.setCapability("chrome.driver","93.0");
+
 
         try {
             driver= new RemoteWebDriver(new URL("https://"+username+":"+accessKey+"@hub.lambdatest.com/wd/hub"), capabilities);

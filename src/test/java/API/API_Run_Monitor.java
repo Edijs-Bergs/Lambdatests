@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 public class API_Run_Monitor {
 
-    private static final String POSTS_API_URL = "https://api.getpostman.com/monitors/16433126-1eca3748-5751-4760-aa90-b673726127f6/run";
+    private static final String POSTS_API_URL = "https://api.getpostman.com/monitors/1eca6c65-dc7b-4fb0-85d7-5cfe074a5889/run";
     @Test
     public void main() throws IOException, InterruptedException, URISyntaxException {
         var uri = new URI(POSTS_API_URL);
