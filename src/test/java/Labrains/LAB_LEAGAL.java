@@ -74,7 +74,7 @@ public class LAB_LEAGAL {
             WebElement SName = driver.findElement(By.xpath("//input[@name='user[surname]']")); //Web element S-Name find
             SName.sendKeys("Rasnacis"); //Send S-name
             WebElement Email = driver.findElement(By.xpath("//input[@name='user[email]']")); //Web element Email find
-            Email.sendKeys("cunami@mailinator.com"); //Send Email
+            Email.sendKeys("cunamileagal@mailinator.com"); //Send Email
             WebElement Tel = driver.findElement(By.xpath("//input[@name='user[tel]']")); //Web element Phone find
             Tel.sendKeys("28452330"); //Send name
             System.out.println("Credentials have been input");

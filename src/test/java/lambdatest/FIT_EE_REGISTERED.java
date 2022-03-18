@@ -137,11 +137,11 @@ public class FIT_EE_REGISTERED {
 
             WebElement City = driver.findElement(By.xpath("//input[@id='shipping_city_3']")); //City
             City.sendKeys("Tallin"); //input city
-
+            Thread.sleep(2000);
             Select dropcounty = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_3']"))); //Select dropdown
             dropcounty.selectByVisibleText("Valga County"); //County
             wait = new WebDriverWait(driver,2); //pause
-
+            Thread.sleep(2000);
             Select dropParish = new Select(driver.findElement(By.xpath("//select[@id='courier_shipping_region_area_3']"))); //Select dropdown
             dropParish.selectByVisibleText("Valga Parish"); //parish
             wait = new WebDriverWait(driver,2); //pause
