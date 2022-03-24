@@ -82,7 +82,7 @@ public class FIT_EE_REGISTERED {
                 System.out.println("Big banner wasn't there");
             }
 
-            driver.findElement(By.xpath("//header/nav/div/ul/div/li/a/div")).click(); //Sale items
+            driver.findElement(By.xpath("//nav[@id='nav']/div/ul/div/li/div/div/a/div")).click(); //Sale items
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
             wait = new WebDriverWait(driver,7); //pause
