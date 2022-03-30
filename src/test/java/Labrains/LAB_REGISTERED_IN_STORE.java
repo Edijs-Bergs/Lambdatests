@@ -31,7 +31,7 @@ public class LAB_REGISTERED_IN_STORE {
         capabilities.setCapability("name", "LAB_REGISTERED_IN_STORE");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("version","94.0");
+        capabilities.setCapability("version","99.0");
         capabilities.setCapability("resolution","1920x1080");
         capabilities.setCapability("selenium_version","3.141.59");
         capabilities.setCapability("console",true);
@@ -58,7 +58,7 @@ public class LAB_REGISTERED_IN_STORE {
 
             driver.manage().window().maximize();
 
-            WebDriverWait wait = new WebDriverWait(driver,2);
+            WebDriverWait wait = new WebDriverWait(driver,10);
 
             driver.findElement(By.xpath("//*[@id=\"cookiesAlert\"]/div/div/div[2]/button[1]")).click(); //Accept cookies
             wait = new WebDriverWait(driver,2);

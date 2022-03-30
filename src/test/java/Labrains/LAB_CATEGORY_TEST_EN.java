@@ -27,7 +27,7 @@ public class LAB_CATEGORY_TEST_EN {
         capabilities.setCapability("name", "LAB_CATEGORY_TEST_EN");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("version","94.0");
+        capabilities.setCapability("version","99.0");
         capabilities.setCapability("resolution","1920x1080");
         capabilities.setCapability("selenium_version","3.141.59");
         capabilities.setCapability("console",true);
@@ -53,7 +53,7 @@ public class LAB_CATEGORY_TEST_EN {
 
             driver.manage().window().maximize(); // Go full page
 
-            WebDriverWait wait = new WebDriverWait(driver,2); //pause
+            WebDriverWait wait = new WebDriverWait(driver,10); //pause
 
             Actions a = new Actions(driver);
             WebElement move = driver.findElement(By.xpath("//a[contains(text(),'SHOP')]"));

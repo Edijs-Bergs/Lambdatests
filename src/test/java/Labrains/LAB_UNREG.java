@@ -32,7 +32,7 @@ public class LAB_UNREG {
         capabilities.setCapability("name", "LAB_UNREG");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("version","94.0");
+        capabilities.setCapability("version","99.0");
         capabilities.setCapability("resolution","1920x1080");
         capabilities.setCapability("selenium_version","3.141.59");
         capabilities.setCapability("console",true);
@@ -59,7 +59,7 @@ public class LAB_UNREG {
 
             driver.manage().window().maximize();
 
-            WebDriverWait wait = new WebDriverWait(driver,2);
+            WebDriverWait wait = new WebDriverWait(driver,10);
             driver.findElement(By.xpath("//a[contains(@href, 'https://labrains.eu/en/category/1/shop')]")).click(); // click shop in nav bar
             driver.findElement(By.xpath("//*[@id=\"cookiesAlert\"]/div/div/div[2]/button[1]")).click(); //Accept cookies
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .btn > span")).click(); // Click on 1st product

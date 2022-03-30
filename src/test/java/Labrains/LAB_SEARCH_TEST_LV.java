@@ -32,7 +32,7 @@ public class LAB_SEARCH_TEST_LV {
         capabilities.setCapability("name", "LAB_SEARCH_TEST_LV");
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("version","94.0");
+        capabilities.setCapability("version","99.0");
         capabilities.setCapability("resolution","1920x1080");
         capabilities.setCapability("selenium_version","3.141.59");
         capabilities.setCapability("console",true);
@@ -58,7 +58,7 @@ public class LAB_SEARCH_TEST_LV {
 
             driver.manage().window().maximize(); // Go full page
 
-            WebDriverWait wait = new WebDriverWait(driver,2); //pause
+            WebDriverWait wait = new WebDriverWait(driver,10); //pause
 
             driver.findElement(By.cssSelector("ul.nav__list.nav__list--end > li.nav__item > span.nav__link.has-subnav")).click(); //Click searsh button
             WebElement Serch = driver.findElement(By.xpath("//input[@id='search_catalog_desc']")); //Search Eko somiņa
