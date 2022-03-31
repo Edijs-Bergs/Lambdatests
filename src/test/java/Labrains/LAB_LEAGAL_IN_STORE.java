@@ -2,6 +2,7 @@ package Labrains;
 
 import org.openqa.selenium.*;
 
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,6 +15,8 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LAB_LEAGAL_IN_STORE {
     public RemoteWebDriver driver = null;
@@ -24,7 +27,24 @@ public class LAB_LEAGAL_IN_STORE {
 
     @BeforeTest
     public void setUp() throws Exception {
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        Map<String, Object> profile = new HashMap<String, Object>();
+        Map<String, Object> contentSettings = new HashMap<String, Object>();
+
+// SET CHROME OPTIONS
+// 0 - Default, 1 - Allow, 2 - Block
+        contentSettings.put("notifications", 2);
+        profile.put("managed_default_content_settings", contentSettings);
+        prefs.put("profile", profile);
+        options.setExperimentalOption("prefs", prefs);
+
+// SET CAPABILITY
+
+
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         capabilities.setCapability("build", "LAB_FINISHED");
         capabilities.setCapability("name", "LAB_LEAGAL_IN_STORE");
         capabilities.setCapability("platform", "Windows 10");
