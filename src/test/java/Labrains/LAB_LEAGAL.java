@@ -126,7 +126,7 @@ public class LAB_LEAGAL {
             LockerInput.sendKeys("Rīga"); //input keys to search
             Thread.sleep(5000);
             driver.findElement(By.cssSelector(".select2-search__field")).sendKeys(Keys.RETURN); // hit enter key
-            Thread.sleep( 2000);
+            Thread.sleep( 5000);
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); // Click order btn
             System.out.println("Clicked Next step");
             wait = new WebDriverWait(driver,40);

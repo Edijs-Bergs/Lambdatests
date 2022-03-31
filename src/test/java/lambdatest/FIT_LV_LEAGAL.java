@@ -58,7 +58,7 @@ public class FIT_LV_LEAGAL {
             driver.get("https://fitnesaveikals.lv/");
             driver.manage().window().maximize();
 
-            WebDriverWait wait = new WebDriverWait(driver,2); //pause
+            WebDriverWait wait = new WebDriverWait(driver,5); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)

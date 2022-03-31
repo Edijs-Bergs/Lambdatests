@@ -57,7 +57,7 @@ public class FIT_LT_REGISTERED {
 
             driver.manage().window().maximize();
 
-            WebDriverWait wait = new WebDriverWait(driver,2); //pause
+            WebDriverWait wait = new WebDriverWait(driver,5); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)

@@ -56,7 +56,7 @@ public class FIT_FI_SERCH_TEST {
             driver.get("https://fitstore.fi/");
             driver.manage().window().maximize();
 
-            WebDriverWait wait = new WebDriverWait(driver,2); //pause
+            WebDriverWait wait = new WebDriverWait(driver,5); //pause
 
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
             if (smalldialog != true)
