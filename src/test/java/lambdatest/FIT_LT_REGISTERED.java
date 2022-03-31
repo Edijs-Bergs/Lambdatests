@@ -110,9 +110,9 @@ public class FIT_LT_REGISTERED {
                 System.out.println("added to cart");
             }
 
-            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            driver.findElement(By.cssSelector("a.menu__link.menu__link--cart > img.menu__icon")).click(); //Go to cart
             System.out.println("Cart has been opened");
-            driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout
+            driver.findElement(By.xpath("//a[contains(text(),'Pateikti užsakymą>')]")).click(); //to checkout
 
             WebElement Log_email = driver.findElement(By.xpath("//input[@id='email']")); // find email
             Log_email.sendKeys("cunami@mailinator.com"); //Send keys

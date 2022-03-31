@@ -111,9 +111,9 @@ public class FIT_LT_UNREGISTERED {
                 System.out.println("added to cart");
             }
 
-            driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
+            driver.findElement(By.cssSelector("a.menu__link.menu__link--cart > img.menu__icon")).click(); //Go to cart
             System.out.println("Cart has been opened");
-            driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout
+            driver.findElement(By.xpath("//a[contains(text(),'Pateikti užsakymą>')]")).click(); //to checkout
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); // Unregistered
 
             WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input
