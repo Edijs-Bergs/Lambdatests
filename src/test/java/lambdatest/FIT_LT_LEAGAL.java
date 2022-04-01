@@ -86,6 +86,7 @@ public class FIT_LT_LEAGAL {
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
             wait = new WebDriverWait(driver,7); //pause
+            driver.navigate().refresh();
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
 

@@ -85,6 +85,7 @@ public class FIT_LT_REGISTERED {
 
             driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
             wait = new WebDriverWait(driver,7); //pause
+            driver.navigate().refresh();
 
             driver.findElement(By.cssSelector(".col-xl-3:nth-child(1) .product__content a")).click(); //2nd product
 
@@ -109,7 +110,6 @@ public class FIT_LT_REGISTERED {
                 driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
                 System.out.println("added to cart");
             }
-
             driver.findElement(By.cssSelector("a.menu__link.menu__link--cart > img.menu__icon")).click(); //Go to cart
             System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(text(),'Pateikti užsakymą>')]")).click(); //to checkout
