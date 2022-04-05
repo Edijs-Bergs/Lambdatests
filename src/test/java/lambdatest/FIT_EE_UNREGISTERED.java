@@ -82,12 +82,11 @@ public class FIT_EE_UNREGISTERED {
                 System.out.println("Big banner wasn't there");
             }
 
-            driver.findElement(By.xpath("//nav[@id='nav']/div/ul/div/li/div/div/a/div")).click(); //Sale items
+            driver.findElement(By.xpath("//nav[@id='nav']/div/ul/div/li/a/div")).click(); //Sale items
 
-            driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            wait = new WebDriverWait(driver,7); //pause
 
-            driver.findElement(By.cssSelector(".col-xl-3:nth-child(2) .product__content a")).click(); //2nd product
+
+            driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(1) > div > div > h4 > a")).click(); //2nd product
 
             WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
             String BtnClassName = BtnClass.getAttribute("class");
@@ -99,7 +98,7 @@ public class FIT_EE_UNREGISTERED {
             if (resultNotClick)
             {
                 driver.navigate().back();
-                driver.findElement(By.cssSelector(".col-xl-3:nth-child(3) .product__content a")).click();
+                driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(1) > div > div > h4 > a")).click();
                 System.out.println("Went back");
                 driver.findElement(By.xpath("//button[2]")).click(); //Add item
                 driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart

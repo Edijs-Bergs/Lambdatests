@@ -80,12 +80,9 @@ public class FIT_FI_REGISTERED {
                 System.out.println("Big banner wasn't there");
             }
 
-            driver.findElement(By.xpath("//nav[@id='nav']/div/ul/li[6]/a")).click(); //Sports
+            driver.findElement(By.xpath("//header/nav/div/ul/li[6]/a/div")).click(); //Sports
 
-            driver.findElement(By.xpath("//*[@id=\"filter\"]/div[4]/div/label")).click(); // filter stock
-            wait = new WebDriverWait(driver,2); //pause
-
-            driver.findElement(By.cssSelector(".col-xl-4:nth-child(1) .product__content a")).click(); //Bottle
+            driver.findElement(By.cssSelector("#product_block_list > div:nth-child(1) > div:nth-child(1) > div > div > h4 > a")).click(); //Bottle
 
             WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
             String BtnClassName = BtnClass.getAttribute("class");
@@ -97,7 +94,7 @@ public class FIT_FI_REGISTERED {
             if (resultNotClick)
             {
                 driver.navigate().back();
-                driver.findElement(By.cssSelector(".col-xl-4:nth-child(2) .product__content a")).click();
+                driver.findElement(By.cssSelector("#product_block_list > div:nth-child(1) > div:nth-child(2) > div > div > h4 > a")).click();
                 System.out.println("Went back");
                 driver.findElement(By.xpath("//button[2]")).click(); //Add item
                 driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
@@ -124,7 +121,7 @@ public class FIT_FI_REGISTERED {
             System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//div[@id='cartTable']/div[4]/a[2]")).click(); //to checkout
 
-            driver.findElement(By.xpath("//div[2]/label")).click(); //Select paysera
+            driver.findElement(By.xpath("//div/div/div/div[2]/label")).click(); //Select paysera
             driver.findElement(By.xpath("//div[@id='delivery_fitstore_fi_free--wrapper']/label")).click(); //Delliver by courier
 
             driver.findElement(By.xpath("//div[8]/div/div/div/label/p")).click(); //accept terms
