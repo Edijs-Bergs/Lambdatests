@@ -5,53 +5,16 @@
 
 # Prerequisites: pom.xml and appropriate project structure should exist in the repository.
 
-image: maven:3.6.3
-
+image: php:8.1.4
 pipelines:
   default:
     - step:
-        caches:
-          - maven
         script:
-          - mvn clean install -U
-          - mvn clean install -DskipTests
-          - mvn -Dtest=FIT_LV_REGISTERED test
-          - mvn -Dtest=FIT_LV_REGISTERED_IN_STORE test
-          - mvn -Dtest=FIT_LV_UNREGISTERED test
-          - mvn -Dtest=FIT_LV_UNREGISTERED_IN_STORE test
-          - mvn -Dtest=FIT_LV_LEAGAL test
-          - mvn -Dtest=FIT_LV_LEAGAL_IN_STORE test
-          - mvn -Dtest=FIT_LV_SERCH_TEST test
-          - mvn -Dtest=FIT_LT_REGISTERED test
-          - mvn -Dtest=FIT_LT_UNREGISTERED test
-          - mvn -Dtest=FIT_LT_LEAGAL test
-          - mvn -Dtest=FIT_LT_SERCH_TEST test
-          - mvn -Dtest=FIT_EE_REGISTERED test
-          - mvn -Dtest=FIT_EE_UNREGISTERED test
-          - mvn -Dtest=FIT_EE_LEAGAL test
-          - mvn -Dtest=FIT_EE_SERCH_TEST test
-          - mvn -Dtest=FIT_FI_REGISTERED test
-          - mvn -Dtest=FIT_FI_UNREGISTERED test
-          - mvn -Dtest=FIT_FI_LEAGAL test
-          - mvn -Dtest=FIT_FI_SERCH_TEST test
-          - mvn -Dtest=PAK_STICKER_BUY_REG test
-          - mvn -Dtest=PAK_STICKER_BUY_NOT_REG test
-          - mvn -Dtest=LAB_UNREG test
-          - mvn -Dtest=LAB_LEAGAL test
-          - mvn -Dtest=LAB_REGISTERED test
-          - mvn -Dtest=LAB_REG_LEAGAL test
-          - mvn -Dtest=LAB_UNREG_IN_STORE test
-          - mvn -Dtest=LAB_LEAGAL_IN_STORE test
-          - mvn -Dtest=LAB_REGISTERED_IN_STORE test
-          - mvn -Dtest=LAB_REG_LEAGAL_IN_STORE test
-          - mvn -Dtest=LAB_SEARCH_TEST_EN test
-          - mvn -Dtest=LAB_SEARCH_TEST_LV test
-          - mvn -Dtest=LAB_SEARCH_TEST_RU test
-          - mvn -Dtest=LAB_CATEGORY_TEST_EN test
-          - mvn -Dtest=LAB_CATEGORY_TEST_LV test
-          - mvn -Dtest=LAB_CATEGORY_TEST_RU test
-          # Run monitor
-          - mvn -Dtest=API_Run_Monitor test
+          - apt-get update && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev
+          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+          - composer require monolog/monolog
+          - composer install
+          - mvn -Dtest=LambdaTest test
 
         after-script:
           # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
