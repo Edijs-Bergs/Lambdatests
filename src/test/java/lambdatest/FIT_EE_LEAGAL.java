@@ -59,8 +59,9 @@ public class FIT_EE_LEAGAL {
             driver.manage().window().maximize();
 
             WebDriverWait wait = new WebDriverWait(driver,5); //pause
-
+            System.out.println("Banner check started");
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
+            //check for element size if element has size of 0 it doesnt exist on the page
             if (smalldialog != true)
             {
                 driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
@@ -81,28 +82,27 @@ public class FIT_EE_LEAGAL {
             {
                 System.out.println("Big banner wasn't there");
             }
-
-            driver.findElement(By.xpath("//nav[@id='nav']/div/ul/div/li/a/div")).click(); //Sale items
-
-//            driver.findElement(By.xpath("//div[@id='filter']/div[4]/div/label")).click(); // filter stock
-//            wait = new WebDriverWait(driver,7); //pause
-
-            driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(1) > div > div > h4 > a")).click(); //2nd product
+            System.out.println("Banner check succesfull opening sale itemd");
+            driver.findElement(By.xpath("//nav[@id='nav']/div/ul/div/li/a/div")).click(); //Sale item
+            driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(1) > div > div > h4 > a")).click(); //Product select
+            System.out.println("product selected");
 
             WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
             String BtnClassName = BtnClass.getAttribute("class");
             System.out.println(BtnClassName);
+            System.out.println("Class name shecked");
 
             String NotClick = "disable-btn";
             boolean resultNotClick = BtnClassName.contains(NotClick);
             System.out.println(resultNotClick);
             if (resultNotClick)
             {
-                driver.navigate().back();
-                driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(2) > div > div > h4 > a")).click();
+                driver.navigate().back(); // navigate back
                 System.out.println("Went back");
+                driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(2) > div > div > h4 > a")).click(); // Serch for next product
                 driver.findElement(By.xpath("//button[2]")).click(); //Add item
                 driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
+                System.out.println("Different item has been added to cart");
             }
             else
             {
@@ -119,19 +119,20 @@ public class FIT_EE_LEAGAL {
 
 
             WebElement Company = driver.findElement(By.id("reg_jur_company")); //search Company name
-            Company.sendKeys("SIA CUNAMI WEB"); //keys name
+            Company.sendKeys("SIA CUNAMI WEB"); //keys Company
             WebElement Index = driver.findElement(By.id("reg_jur_zip")); //search index
-            Index.sendKeys("LV-5134"); //keys name
+            Index.sendKeys("LV-5134"); //keys postal
             WebElement Adress = driver.findElement(By.id("reg_jur_reg_address")); //search Adress
-            Adress.sendKeys("Maskavas iela 127, LV-1003"); //keys name
-            WebElement RegNumber = driver.findElement(By.id("reg_jur_reg_nr")); //search Ren number
-            RegNumber.sendKeys("40103996361"); //keys name
+            Adress.sendKeys("Maskavas iela 127, LV-1003"); //keys adres
+            WebElement RegNumber = driver.findElement(By.id("reg_jur_reg_nr")); //search Reg number
+            RegNumber.sendKeys("40103996361"); //keys reg number
             WebElement TaxNumber = driver.findElement(By.id("reg_jur_tax_nr")); //search Tax Number
-            TaxNumber.sendKeys("LV40103996361"); //keys name
+            TaxNumber.sendKeys("LV40103996361"); //keys Tax num
             Select dropdownCountry1 = new Select(driver.findElement(By.xpath("//*[@id=\"reg_jur_country\"]"))); //Select Country
             dropdownCountry1.selectByVisibleText("Latvia"); //Select LV
             WebElement Town = driver.findElement(By.id("reg_jur_town")); //search Town
-            Town.sendKeys("Rīga"); //keys name
+            Town.sendKeys("Rīga"); //keys Town
+            System.out.println("Company details have been input");
 
             WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input
             orderName.sendKeys("Arturs"); //keys name
@@ -143,6 +144,9 @@ public class FIT_EE_LEAGAL {
             dropdowntel.selectByVisibleText("LV +371"); //Select LV index
             WebElement phone = driver.findElement(By.id("reg_tel")); //Search phone
             phone.sendKeys("20000000");
+
+            System.out.println("Credentials have been input");
+
 
             driver.findElement(By.xpath("//div[6]/div/div/div[2]/label")).click(); //Select paysera
             driver.findElement(By.xpath("(//div[@id='delivery_courier--wrapper']/label)[2]")).click(); //Delliver by courier
@@ -170,6 +174,8 @@ public class FIT_EE_LEAGAL {
             Street.sendKeys("Palupera tee"); //input street
             wait = new WebDriverWait(driver,2); //pause
 
+            System.out.println("Delivery info has been input");
+
             Select dropdowntel2 = new Select(driver.findElement(By.xpath("(//select[@name='shipping[courier][phone_country]'])[2]"))); //Select dropdown
             dropdowntel2.selectByVisibleText("LV +371"); //Select LV index
 
@@ -177,22 +183,25 @@ public class FIT_EE_LEAGAL {
             phone2.sendKeys("20000000");
 
             driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[9]/div/div/div/label/p")).click(); //accept terms
+            System.out.println("Terms accepted");
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
             Thread.sleep(2000);
-
-            String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
-            boolean result = page_url.contains(Substring);
+            System.out.println("Test validation");
+            String page_url = driver.getCurrentUrl(); //get current url
+            String Substring = "popup/pay"; //Sest substring
+            boolean result = page_url.contains(Substring); //determine if URL contains substring
             System.out.println(result);
             if (result)
             {
                 Resulting = "passed";
+                System.out.println("Currect url");
             }
             else
             {
                 Resulting = "failed";
+                System.out.println("Wrong url");
             }
             System.out.println(Resulting);
 

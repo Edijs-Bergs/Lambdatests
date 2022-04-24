@@ -56,28 +56,48 @@ public class PAK_STICKER_BUY_NOT_REG {
     public void PAK_NOT_REG() throws Exception {
         try {
 
+            //go to the page
             driver.get("https://www.stensan.com/en");
-
+            //maximize the window
             driver.manage().window().maximize();
+            //start the test steps
+            driver.findElement(By.xpath("//*[@id=\"page\"]/div[1]/div[1]/div/div")).click(); //acept cookies
+            System.out.println("Cookies accepted");
+//            driver.findElement(By.xpath("//*[@id=\"header_bottom_id\"]/div/div/div/div[2]/ul/li[1]/a")).click(); //start login
+//            System.out.println("Went to login page");
+//
+//            WebElement logemail = driver.findElement(By.xpath("//*[@id=\"login_email\"]"));
+//            logemail.sendKeys("cunami@mailinator.com"); //input login email
+//            WebElement logpass = driver.findElement(By.xpath("//*[@id=\"login_pswd\"]"));
+//            logpass.sendKeys("Maskavas127"); // input password
+//            System.out.println("Credentials input");
+//            driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[4]/button")).click(); //submit the login info
+//            System.out.println("Submit succesfull");
+//            Thread.sleep( 2000);
 
-            driver.findElement(By.xpath("//*[@id=\"page\"]/section[1]/div/div/div[1]/div[4]/a[2]")).click();
+            driver.findElement(By.xpath("//*[@id=\"page\"]/section[1]/div/div/div[1]/div[4]/a[2]")).click(); //open sticker select
+            System.out.println("Sticker selection initiated");
+            Thread.sleep( 1000);
 
-            driver.findElement(By.xpath("//form[@id='store-first-step-form']/div[2]/div/div/div[2]/label[2]/div/div/img")).click(); //Shape cut
+
+            driver.findElement(By.xpath("//form[@id='store-first-step-form']/div[2]/div/div/div[2]/label[2]/div/div/img")).click(); //choose the Shape cut
 
             WebElement xinput = driver.findElement(By.xpath("//*[@id=\"store-first-step-form\"]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div/div/input"));
-            xinput.clear();
-            xinput.sendKeys("60");
+            xinput.clear(); // clear input feild
+            xinput.sendKeys("60"); // send dimention
             WebElement yinput = driver.findElement(By.xpath("//*[@id=\"store-first-step-form\"]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div/input"));
-            yinput.clear();
-            yinput.sendKeys("70");
+            yinput.clear(); // clear input feild
+            yinput.sendKeys("70"); // send dimention
 
-            driver.findElement(By.xpath("//button[@id='store-first-step']")).click();
+            driver.findElement(By.xpath("//button[@id='store-first-step']")).click(); //submit values
 
             Thread.sleep( 500);
 
-            driver.findElement(By.xpath("//div[@id='use_custom_size_block']/div/div/label")).click();
-            driver.findElement(By.xpath("//button[@id='store-first-step']")).click();
+            driver.findElement(By.xpath("//div[@id='use_custom_size_block']/div/div/label")).click(); //accept coustum sizes
+            driver.findElement(By.xpath("//button[@id='store-first-step']")).click(); //submit values
             Thread.sleep(2000);
+
+            System.out.println("Shape and cut was set up");
 
             Select dropdownmaterial = new Select(driver.findElement(By.cssSelector("#material"))); //Select dropdown
             dropdownmaterial.selectByVisibleText("Vellum matte"); //Select material
@@ -88,44 +108,52 @@ public class PAK_STICKER_BUY_NOT_REG {
             Select dropdownrolling = new Select(driver.findElement(By.xpath("//select[@name='rolling']"))); //select dropdown
             dropdownrolling.selectByVisibleText("Outer"); //select rolling
 
+            System.out.println("Additional sticker info was selected");
+
+
+
             driver.findElement(By.xpath("//button[@id='store-second-step']")).click(); //2nd submit
+            System.out.println("First step is submitted");
             Thread.sleep(2000);
             driver.findElement(By.cssSelector(".btn--lg")).click();
             Thread.sleep(2000);
 
-            WebElement name = driver.findElement(By.xpath("//input[@name='user[name]']")); //search name
-            name.clear();
-            name.sendKeys("Arturs"); //input name
-            WebElement sname = driver.findElement(By.xpath("//input[@name='user[surname]']"));  //search sname
-            sname.clear();
-            sname.sendKeys("Rasnacis"); //input sname
-            WebElement email = driver.findElement(By.xpath("//input[@name='user[email]']")); //search email
-            email.clear();
-            email.sendKeys("cunami@mailinator.com"); //inpun email
-            WebElement tel = driver.findElement(By.xpath("//input[@name='user[tel]']"));  //search tel
-            tel.clear();
-            tel.sendKeys("20000000"); //input tel
-
+            System.out.println("Shipping options");
+            WebElement Name = driver.findElement(By.xpath("//input[@name='user[name]']"));
+            Name.sendKeys("Arturs"); //input login email
+            WebElement SName = driver.findElement(By.xpath("//input[@name='user[surname]']"));
+            SName.sendKeys("Rasnacis"); // input password
+            WebElement logemail = driver.findElement(By.xpath("//input[@name='user[email]']"));
+            logemail.sendKeys("cunami@mailinator.com"); //input login email
+            WebElement logtel = driver.findElement(By.xpath("//input[@name='user[tel]']"));
+            logtel.sendKeys("+37120000000"); // input password
+            System.out.println("Credentials input");
             driver.findElement(By.xpath("//label[contains(.,'Paysera')]")).click(); //paysera
             driver.findElement(By.xpath("//div[@id='delivery_free--wrapper']/label")).click(); //In office
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); //next step
-            driver.findElement(By.xpath("//label[contains(.,'I agree Purchase rules, Privacy Policy and Delivery policy')]")).click();// terms
+            Thread.sleep( 2000);
+
+            System.out.println("Purchache confirmation");
+
+
+
+
+
+
+            driver.findElement(By.xpath("//label[contains(.,'I agree Purchase rules, Privacy Policy and Delivery policy')]")).click();// terms accept
             driver.findElement(By.xpath("//*[@id=\"confirm_order_btn\"]")).click(); //Submit order
 
-            Thread.sleep(2000);
-            String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
-            boolean result = page_url.contains(Substring);
-            System.out.println(result);
-
+            System.out.println("Test validaton");
+            Thread.sleep(4000);
+            String page_url = driver.getCurrentUrl(); //get current url
+            String Substring = "popup/pay/paywindow/"; //validation string
+            boolean result = page_url.contains(Substring); //determine if current url contains validation string
+            System.out.println(result); //print out the result of validation
+            // mark the test based on the result value
             if (result)
-            {
-                Resulting = "passed";
-            }
+            {Resulting = "passed";}
             else
-            {
-                Resulting = "failed";
-            }
+            {Resulting = "failed";}
             System.out.println(Resulting);
 
         } catch (Exception e) {

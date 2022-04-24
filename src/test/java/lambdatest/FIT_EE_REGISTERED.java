@@ -59,8 +59,9 @@ public class FIT_EE_REGISTERED {
             driver.manage().window().maximize();
 
             WebDriverWait wait = new WebDriverWait(driver,5); //pause
-
+            System.out.println("Banner check started");
             boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
+            //check for element size if element has size of 0 it doesnt exist on the page
             if (smalldialog != true)
             {
                 driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
@@ -81,25 +82,27 @@ public class FIT_EE_REGISTERED {
             {
                 System.out.println("Big banner wasn't there");
             }
-
-            driver.findElement(By.xpath("//nav[@id='nav']/div/ul/div/li/a/div")).click(); //Sale items
-
-            driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(1) > div > div > h4 > a")).click(); //2nd product
+            System.out.println("Banner check succesfull opening sale itemd");
+            driver.findElement(By.xpath("//nav[@id='nav']/div/ul/div/li/a/div")).click(); //Sale item
+            driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(1) > div > div > h4 > a")).click(); //Product select
+            System.out.println("product selected");
 
             WebElement BtnClass = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
             String BtnClassName = BtnClass.getAttribute("class");
             System.out.println(BtnClassName);
+            System.out.println("Class name shecked");
 
             String NotClick = "disable-btn";
             boolean resultNotClick = BtnClassName.contains(NotClick);
             System.out.println(resultNotClick);
             if (resultNotClick)
             {
-                driver.navigate().back();
-                driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(2) > div > div > h4 > a")).click();
+                driver.navigate().back(); // navigate back
                 System.out.println("Went back");
+                driver.findElement(By.cssSelector("#search_block > div:nth-child(1) > div:nth-child(2) > div > div > h4 > a")).click(); // Serch for next product
                 driver.findElement(By.xpath("//button[2]")).click(); //Add item
                 driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // add to cart
+                System.out.println("Different item has been added to cart");
             }
             else
             {
@@ -158,18 +161,20 @@ public class FIT_EE_REGISTERED {
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click();  //submit
 
             Thread.sleep(2000);
-
-            String page_url = driver.getCurrentUrl();
-            String Substring = "popup/pay";
-            boolean result = page_url.contains(Substring);
+            System.out.println("Test validation");
+            String page_url = driver.getCurrentUrl(); //get current url
+            String Substring = "popup/pay"; //Sest substring
+            boolean result = page_url.contains(Substring); //determine if URL contains substring
             System.out.println(result);
             if (result)
             {
                 Resulting = "passed";
+                System.out.println("Currect url");
             }
             else
             {
                 Resulting = "failed";
+                System.out.println("Wrong url");
             }
             System.out.println(Resulting);
 

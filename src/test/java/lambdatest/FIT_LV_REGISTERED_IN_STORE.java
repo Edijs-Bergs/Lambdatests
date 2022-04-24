@@ -118,7 +118,7 @@ public class FIT_LV_REGISTERED_IN_STORE {
             driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[4]/a")).click(); //Go to cart
             System.out.println("Cart has been opened");
             driver.findElement(By.xpath("//a[contains(text(),'Noformēt pasūtījumu >')]")).click(); //Submit order
-            driver.findElement(By.xpath("/html/body/div[1]/main/section[1]/div/div[2]/div/form/div[1]/div[1]/div[1]/div[4]/label")).click(); //Store pickup
+            driver.findElement(By.xpath("//div/div/div/div[3]/label")).click(); //Find pay at store
             driver.findElement(By.xpath("//label[contains(.,'Fitnesaveikals.lv birojā')]")).click();
             driver.findElement(By.xpath("//div[5]/div/div/div/label/p")).click(); //Terms
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click(); //Submit

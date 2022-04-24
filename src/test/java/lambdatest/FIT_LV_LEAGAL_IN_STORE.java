@@ -134,8 +134,8 @@ public class FIT_LV_LEAGAL_IN_STORE {
             WebElement phone = driver.findElement(By.id("reg_tel")); //Search phone
             phone.sendKeys("20000000"); //send phone
 
-            driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[6]/div[1]/div[1]/div[4]/label")).click(); //Find pay at store
-            driver.findElement(By.cssSelector(".row:nth-child(9) #delivery_free--wrapper > .radio__label")).click(); //In Office
+            driver.findElement(By.xpath("//div[6]/div/div/div[3]/label")).click(); //Find pay at store
+            driver.findElement(By.xpath("//div[6]/div/div[2]/div/label")).click(); //In Office
             driver.findElement(By.cssSelector(".row:nth-child(13) .checkbox__label")).click(); //terms accept
             driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click(); //Submit
 
