@@ -87,7 +87,7 @@ public class LAB_REGISTERED_IN_STORE {
             wait = new WebDriverWait(driver,2);
             WebElement Email = driver.findElement(By.xpath("//*[@id=\"login_email\"]")); //Web element Email find
             wait = new WebDriverWait(driver,2);
-            Email.sendKeys("cunami@mailinator.com"); //Send Email
+            Email.sendKeys("cunami2@mailinator.com"); //Send Email
             wait = new WebDriverWait(driver,2);
             WebElement PSW = driver.findElement(By.xpath("//*[@id=\"login_pswd\"]")); //Web element Email find
             wait = new WebDriverWait(driver,2);

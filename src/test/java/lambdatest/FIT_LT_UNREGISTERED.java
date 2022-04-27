@@ -150,7 +150,7 @@ public class FIT_LT_UNREGISTERED {
             WebElement phone2 = driver.findElement(By.xpath("//input[@id='shipping_phone_2']")); //Search phone
             phone2.sendKeys("20000000");
 
-            driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[9]/div/div/div/label/p")).click(); //accept terms
+            driver.findElement(By.xpath("//*[@id=\"unreg_user\"]/form/div[10]/div/div/div/label/p")).click(); //accept terms
 
             driver.findElement(By.xpath("(//button[@id='create_order_btn'])[2]")).click();  //submit
 
