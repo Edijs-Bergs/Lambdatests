@@ -20,7 +20,7 @@ public class FIT_FI_SERCH_TEST {
     String username = "artcunami";
     String accessKey = "GEgw9pj51Cr89G25mTpkeaiHuVRULl8x9gAnJAcQC8i3GGkmqd";
     String Resulting = "failed";
-    String[] Products = {"keskus", "Balance-pad Elite", "Vastuskuminauha", "Medicine Ball", "TRX Juliste"};
+    String[] Products = {"keskus", "Balance-pad Elite", "Vastuskuminauha", "kisakahvakuula", "TRX Juliste"};
     char ch = '-';
 
     @BeforeTest
@@ -58,60 +58,61 @@ public class FIT_FI_SERCH_TEST {
 
             WebDriverWait wait = new WebDriverWait(driver,5); //pause
 
-            boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
-            if (smalldialog != true)
-            {
-                driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
-                System.out.println("Big banner was there");
-            }
-            else
-            {
-                System.out.println("Big banner wasn't there");
-            }
-
-            boolean botbanner = driver.findElements(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).size() == 0;
-            if (botbanner != true)
-            {
-                driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
-                System.out.println("Bottom banner was there");
-            }
-            else
-            {
-                System.out.println("Big banner wasn't there");
-            }
-
-            int idx = new Random().nextInt(Products.length);
-            String S_Product = (Products[idx]);
-            System.out.println(S_Product);
-            String S_Term = S_Product.replaceAll(" ", "+");
-            System.out.println(S_Term);
 
 
+                boolean smalldialog = driver.findElements(By.xpath("//*[@id=\"small-dialog\"]/button")).size()  == 0;
+                if (smalldialog != true)
+                {
+                    driver.findElement(By.xpath("//*[@id=\"small-dialog\"]/button")).click();
+                    System.out.println("Big banner was there");
+                }
+                else
+                {
+                    System.out.println("Big banner wasn't there");
+                }
 
-            WebElement Serch = driver.findElement(By.xpath("//input[@id='search_catalog']")); // Find Search
-            Serch.sendKeys(S_Product); //Send keys
-            driver.findElement(By.xpath("//input[@id='search_catalog']")).sendKeys(Keys.RETURN); //Hit enter key
+                boolean botbanner = driver.findElements(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).size() == 0;
+                if (botbanner != true)
+                {
+                    driver.findElement(By.xpath("//*[@id=\"bottom-banner-id\"]/span")).click();
+                    System.out.println("Bottom banner was there");
+                }
+                else
+                {
+                    System.out.println("Big banner wasn't there");
+                }
+            //for (int i = 0; i < 20; i++) {
+                int idx = new Random().nextInt(Products.length);
+                String S_Product = (Products[idx]);
+                System.out.println(S_Product);
+                String S_Term = S_Product.replaceAll(" ", "+");
+                System.out.println(S_Term);
 
-            wait = new WebDriverWait(driver,2); //pause
 
-            String page_url = driver.getCurrentUrl(); //Get currennt url
-            System.out.println(page_url); //print url
+                WebElement Serch = driver.findElement(By.xpath("//input[@id='search_catalog']")); // Find Search
+                Serch.sendKeys(S_Product); //Send keys
+                driver.findElement(By.xpath("//input[@id='search_catalog']")).sendKeys(Keys.RETURN); //Hit enter key
 
-            String Substring = "search_product_title=".concat(S_Term); //Comparison string
-            boolean result = page_url.contains(Substring); //Determine page
-            System.out.println(result); //print value
+                wait = new WebDriverWait(driver, 2); //pause
 
-            if (result)
-            {
-                WebElement Search_Product = driver.findElement(By.xpath("//a[contains(text(),'"+S_Product+"')]"));
-                System.out.println(Search_Product);
-                Resulting = "passed";
-            }
-            else
-            {
-                Resulting = "failed";
-            }
+                String page_url = driver.getCurrentUrl(); //Get currennt url
+                System.out.println(page_url); //print url
 
+                String Substring = "search_product_title=".concat(S_Term); //Comparison string
+                boolean result = page_url.contains(Substring); //Determine page
+                System.out.println(result); //print value
+                //System.out.println(i);
+
+                if (result) {
+                    WebElement Search_Product = driver.findElement(By.xpath("//a[contains(text(),'" + S_Product + "')]"));
+                    System.out.println(Search_Product);
+                    Resulting = "passed";
+                } else {
+                    Resulting = "failed";
+                    return;
+
+                }
+            //}
 
 
 
