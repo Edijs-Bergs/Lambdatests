@@ -108,7 +108,7 @@ public class PAK_STICKER_BUY_REG {
             Select dropdownrolling = new Select(driver.findElement(By.xpath("//select[@name='rolling']"))); //select dropdown
             dropdownrolling.selectByVisibleText("Outer"); //select rolling
             Select dropdownoutdiameter = new Select(driver.findElement(By.id("outer_diameter"))); //select dropdown
-            dropdownoutdiameter.selectByVisibleText("100 mm"); //select rolling
+            dropdownoutdiameter.selectByVisibleText("100 mm"); //select rollin
 
             System.out.println("Additional sticker info was selected");
 
