@@ -107,7 +107,7 @@ public class FIT_LV_REGISTERED_IN_STORE {
 
             driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
             System.out.println("Cart has been opened");
-            driver.findElement(By.xpath("//a[contains(text(),'Noformēt pasūtījumu >')]")).click(); //Submit order
+            driver.findElement(By.xpath("//div[@id='cartTable']/div[3]/div/div[4]/a")).click();//Submit order
 
             WebElement Log_email = driver.findElement(By.xpath("//input[@id='email']")); // find email
             Log_email.sendKeys("cunami@mailinator.com"); //Send keys
@@ -117,15 +117,16 @@ public class FIT_LV_REGISTERED_IN_STORE {
             driver.findElement(By.xpath("//form[@id='login-form']/button")).click(); // login
             driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[4]/a")).click(); //Go to cart
             System.out.println("Cart has been opened");
-            driver.findElement(By.xpath("//a[contains(text(),'Noformēt pasūtījumu >')]")).click(); //Submit order
+            driver.findElement(By.xpath("//div[@id='cartTable']/div[3]/div/div[4]/a")).click();//Submit order
             driver.findElement(By.xpath("//div/div/div/div[3]/label")).click(); //Find pay at store
             driver.findElement(By.xpath("//label[contains(.,'Fitnesaveikals.lv birojā')]")).click();
             driver.findElement(By.xpath("//div[5]/div/div/div/label/p")).click(); //Terms
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click(); //Submit
+            driver.findElement(By.id("save_order_btn")).click();
 
             Thread.sleep(2000);
             String page_url = driver.getCurrentUrl();
-            String Substring = "fitnesaveikals.lv/cart-done";
+            String Substring = "fitnesaveikals.lv/cart-info";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
             if (result)

@@ -110,7 +110,7 @@ public class FIT_LT_UNREGISTERED {
 
             driver.findElement(By.cssSelector("a.menu__link.menu__link--cart > img.menu__icon")).click(); //Go to cart
             System.out.println("Cart has been opened");
-            driver.findElement(By.xpath("//a[contains(text(),'Pateikti užsakymą>')]")).click(); //to checkout
+            driver.findElement(By.xpath("//div[@id='cartTable']/div[3]/div/div[4]/a")).click();//Submit order
             driver.findElement(By.xpath("(//button[@type='button'])[4]")).click(); // Unregistered
 
             WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input

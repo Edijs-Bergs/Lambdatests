@@ -108,7 +108,7 @@ public class FIT_LT_REGISTERED {
             }
             driver.findElement(By.cssSelector("a.menu__link.menu__link--cart > img.menu__icon")).click(); //Go to cart
             System.out.println("Cart has been opened");
-            driver.findElement(By.xpath("//a[contains(text(),'Pateikti užsakymą>')]")).click(); //to checkout
+            driver.findElement(By.xpath("//div[@id='cartTable']/div[3]/div/div[4]/a")).click();//Submit order
 
             WebElement Log_email = driver.findElement(By.xpath("//input[@id='email']")); // find email
             Log_email.sendKeys("cunami@mailinator.com"); //Send keys
@@ -118,7 +118,7 @@ public class FIT_LT_REGISTERED {
             driver.findElement(By.xpath("//form[@id='login-form']/button")).click(); // login
             driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[4]/a")).click(); //Go to cart
             System.out.println("Cart has been opened");
-            driver.findElement(By.xpath("//a[contains(@href, 'https://fitstore.lt/checkout')]")).click(); //to checkout
+            driver.findElement(By.xpath("//div[@id='cartTable']/div[3]/div/div[4]/a")).click();//Submit order
 
             driver.findElement(By.xpath("//div/div/div/div[2]/label")).click(); //Select paysera
             driver.findElement(By.xpath("//div[@id='delivery_courier--wrapper']/label")).click(); //Delliver by courier

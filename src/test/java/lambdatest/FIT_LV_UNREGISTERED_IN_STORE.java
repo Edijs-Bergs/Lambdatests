@@ -107,7 +107,7 @@ public class FIT_LV_UNREGISTERED_IN_STORE {
             driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[1]/div[3]/div/form/button")).click();//Add to cart
             driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/ul/li[3]/a")).click(); //Go to cart
             System.out.println("Cart has been opened");
-            driver.findElement(By.xpath("//*[@id=\"cartTable\"]/div[4]/a[2]")).click();//Submit order
+            driver.findElement(By.xpath("//div[@id='cartTable']/div[3]/div/div[4]/a")).click();//Submit order
             driver.findElement(By.xpath("/html/body/div[1]/main/section[1]/div/div[2]/div/div[2]/div[1]/button[2]")).click(); //Not registered
 
             WebElement orderName = driver.findElement(By.id("reg_name")); //search Name input
@@ -125,10 +125,13 @@ public class FIT_LV_UNREGISTERED_IN_STORE {
             driver.findElement(By.xpath("//div[@id='unreg_user']/form/div[11]/button")).click(); //Submit
 
             Thread.sleep(2000);
-            Resulting = "passed";
+
+            driver.findElement(By.xpath("//div[@id='delivery_free--wrapper']/label")).click();
+            Thread.sleep(2000);
+            driver.findElement(By.id("save_order_btn")).click();
 
             String page_url = driver.getCurrentUrl();
-            String Substring = "fitnesaveikals.lv/cart-done";
+            String Substring = "/cart-info";
             boolean result = page_url.contains(Substring);
             System.out.println(result);
             if (result)
