@@ -141,8 +141,6 @@ public class FIT_LV_LEAGAL_IN_STORE {
 
             Thread.sleep(2000);
 
-            driver.findElement(By.id("save_order_btn")).click();
-
             String page_url = driver.getCurrentUrl();
             String Substring = "fitnesaveikals.lv/cart-info";
             boolean result = page_url.contains(Substring);

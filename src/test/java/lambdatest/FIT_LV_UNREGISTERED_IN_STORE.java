@@ -126,10 +126,6 @@ public class FIT_LV_UNREGISTERED_IN_STORE {
 
             Thread.sleep(2000);
 
-            driver.findElement(By.xpath("//div[@id='delivery_free--wrapper']/label")).click();
-            Thread.sleep(2000);
-            driver.findElement(By.id("save_order_btn")).click();
-
             String page_url = driver.getCurrentUrl();
             String Substring = "/cart-info";
             boolean result = page_url.contains(Substring);

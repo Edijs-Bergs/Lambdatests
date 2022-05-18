@@ -122,7 +122,6 @@ public class FIT_LV_REGISTERED_IN_STORE {
             driver.findElement(By.xpath("//label[contains(.,'Fitnesaveikals.lv birojā')]")).click();
             driver.findElement(By.xpath("//div[5]/div/div/div/label/p")).click(); //Terms
             driver.findElement(By.xpath("//button[@id='create_order_btn']")).click(); //Submit
-            driver.findElement(By.id("save_order_btn")).click();
 
             Thread.sleep(2000);
             String page_url = driver.getCurrentUrl();
